@@ -1,0 +1,26 @@
+<div class="row">
+
+<h3>Edit <%= review.name %></h3>
+<form class='col l12' action="/reviews/<%= review._id %>" method="post">
+  <input type='hidden' name='_method' value='PUT'>
+<div class="input-field col l12">
+<input type="text" name="title" id='title_field' value='<%= review.title %>'>
+<label for='title_field'>Title</label>
+</div>
+<div class="input-field col l12">
+<input type="date" name="date" id='date_field' value='<%= review.date %>'>
+<label for='date_field'>Date</label>
+</div>
+<div class="input-field col l12">
+<input type="number" name="rating" id='rating_field' value='<%= review.rating %>'>
+<label for='rating_field'>Rating</label>
+</div>
+<div class="input-field col l12">
+<input type="text" name="comment" id='comment_field' value='<%= review.comment %>'>
+<label for='comment_field'>Comment</label>
+</div>
+<div class="input-field col l12">
+<button class="green btn">Update review</button>
+</div>
+</form>
+</div>

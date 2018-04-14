@@ -1,0 +1,17 @@
+<nav>
+  <div class="nav-wrapper teal lighten-5">
+    <a href="/" class="brand-logo brown-text">Parklife</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if (locals.isLoggedIn) { %>
+        <li><a href ="/logout" class='brown-text' >Logout (signed in as <%= locals.user.username %>)</a></li>
+        <li><a href ="/reviews/new" class='brown-text'>Create New Review</a></li>
+            <li><a href ="/reviews" class='brown-text'>Your Account</a></li>
+        <%  } else { %>
+          <li><a href ="/createaccount" class='brown-text'>Create an account</a></li>
+          <li><a href="/login" class='brown-text'>Log in</a></li>
+          <% } %>
+
+  <li><a href="/parks" class='brown-text'>Parks</a></li>
+        </ul>
+      </div>
+    </nav>

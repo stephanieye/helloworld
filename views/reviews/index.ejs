@@ -1,0 +1,26 @@
+<h3>Your account</h3>
+
+<p><%= user.username %></p>
+<p><%= user.email %></p>
+
+<h4>Your reviews</h4>
+
+ <% if(locals.isLoggedIn) {%>
+   <% reviews.forEach(review => {
+       if((review.user && review.user.id) === locals.user.id){ %>
+     <div class="col s12 m6">
+       <div class="card blue-grey darken-1">
+         <div class="card-content white-text">
+           <span class="card-title"><%= review.title %></span>
+           <p><%= review.date %></p>
+           <p><%= review.rating %></p>
+         </div>
+         <div class="card-action">
+           <a href="/reviews/<%= review._id %>" class="green-text">View Review</a>
+           <a href="/reviews/<%= review._id %>/edit" class="orange-text">Edit Review</a>
+         </div>
+       </div>
+     </div>
+     <% } %>
+   <% }) %>
+   <% } %>

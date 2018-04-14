@@ -1,0 +1,10 @@
+<div class="row">
+
+  <h3 class= 'col l10'><%= park.parkname %></h3>
+  <div class="col l2">
+    <% if (locals.isLoggedIn) { %>
+
+      <li><a href = "/parks/<%= park._id %>/newreview" class='brown-text'>Create New Review</a></li>
+    <% } %>
+  </div>
+</div>

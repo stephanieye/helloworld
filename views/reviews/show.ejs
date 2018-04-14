@@ -1,0 +1,10 @@
+<div class="row">
+
+  <h3 class= 'col l10'><%= review.title %></h3>
+  <div class="col l2">
+    <form action="/reviews/<%= review.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'>
+      <button class='btn red'>Delete Review</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<h3>Parks</h3>
+
+<% parks.forEach(park => { %>
+  <div class="col s12 m6">
+  <div class="card blue-grey darken-1">
+  <div class="card-content white-text">
+  <span class="card-title"><%= park.parkname %></span>
+  </div>
+  <div class="card-action">
+  <a href="/parks/<%= park._id %>" class="green-text">View Park</a>
+  </div>
+  </div>
+  </div>
+  <% }) %>
