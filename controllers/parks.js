@@ -4,34 +4,39 @@ const Park = require('../models/park');
 function parksIndex(req, res) {
   Park
     .find()
-    .populate('review')
+    .populate('reviews')
     .exec()
     .then(parks => {
       res.render('parks/index', {parks});
     });
 }
+function parksAccount(req, res) {
+  Park
+    .find()
+    .populate('reviews')
+    .exec()
+    .then(parks => {
+      res.render('parks/account', {parks});
+    });
+}
+
+
 
 function parksShow(req, res) {
   Park
     .findById(req.params.id)
+    .populate('reviews')
     .exec()
     .then(park => {
       res.render('parks/show', {park});
     });
 }
 
-
-
-
-
-
-
 function parksNew(req, res) {
   res.render('parks/new', {error: null});
 }
 
 function parksCreate(req, res) {
-  req.body.user = req.currentUser;
   Park
     .create(req.body)
     .then(() => res.redirect('/parks'))
@@ -45,6 +50,7 @@ function parksCreate(req, res) {
 function parksEdit(req, res) {
   Park
     .findById(req.params.id)
+    .populate('reviews')
     .exec()
     .then(park => res.render('parks/edit', {park}));
 }
@@ -68,45 +74,65 @@ function parksDelete(req, res) {
     .then(() => res.redirect('/parks'));
 }
 
-function parksNewReview(req, res) {
+
+function reviewCreateRoute(req, res) {
+  // req.body.user = req.currentUser;
+  Park
+    .findById(req.params.id)
+    .then(park => {
+      park.reviews.push(req.body);
+      return park.save();
+    })
+    .then(park => res.redirect(`/parks/${park._id}`));
+}
+
+function reviewDeleteRoute(req, res) {
+  Park
+    .findById(req.params.id)
+    .then(park => {
+      const review = park.reviews.id(req.params.reviewId);
+      review.remove();
+      return park.save();
+    })
+    .then(() => res.redirect('/parks/account'));
+}
+
+
+function reviewEditRoute(req, res) {
+  Park
+    .findById(req.params.id)
+    .then(park => {
+      const review = park.reviews.id(req.params.reviewId);
+      res.render('parks/reviewedit', { park, review });
+    });
+}
+
+
+function reviewUpdateRoute(req, res) {
   Park
     .findById(req.params.id)
     .exec()
-    .then(park => res.render('parks/newreview', {park}));
+    .then(park => {
+      var review = park.reviews.id(req.params.reviewId);
+      review = Object.assign(review, req.body);
+      return review.save;
+    })
+    .then(review => res.redirect(`reviews/${review._id}`));
 }
 
-// function parksReviewCreate(req, res) {
-//   req.body.user = req.currentUser;
-//   Park
-//     .create(req.body)
-//     .then(() => res.redirect('/park._id'))
-//     .catch((error) => {
-//       if(error.name === 'ValidationError') {
-//         return res.badRequest('/parks/newreview', error.toString());
-//       }
-//     });
-// }
-//
-//
-// function parksReviews(req, res) {
-//   Park
-//     .findById(req.params.id)
-//     .exec()
-//     .then(park => {
-//       res.render('parks/show', {park});
-//     });
-// }
-//
+
 
 module.exports = {
   index: parksIndex,
+  account: parksAccount,
   show: parksShow,
   delete: parksDelete,
   new: parksNew,
   create: parksCreate,
   edit: parksEdit,
   update: parksUpdate,
-  newreview: parksNewReview
-  // reviewcreate: parksReviewCreate,
-  // reviews: parksReviews
+  reviewCreate: reviewCreateRoute,
+  reviewDelete: reviewDeleteRoute,
+  reviewEdit: reviewEditRoute,
+  reviewUpdate: reviewUpdateRoute
 };

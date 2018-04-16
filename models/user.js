@@ -5,8 +5,7 @@ mongoose.Promise = require('bluebird');
 const userSchema = new mongoose.Schema({
   username: {type: String, required: true},
   email: {type: String, required: true},
-  password: {type: String, required: true},
-  reviews: [{type: mongoose.Schema.ObjectId, ref: 'Review'}]
+  password: {type: String, required: true}
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) {

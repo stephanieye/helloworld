@@ -1,10 +1,41 @@
-<div class="row">
+<div class="container">
 
   <h3 class= 'col l10'><%= park.parkname %></h3>
-  <div class="col l2">
-    <% if (locals.isLoggedIn) { %>
 
-      <li><a href = "/parks/<%= park._id %>/newreview" class='brown-text'>Create New Review</a></li>
-    <% } %>
-  </div>
+
+
+  <% park.reviews.forEach((review) => { %>
+<div class='divider'></div>
+
+    <h5><%= review.title %></h5>
+    <h6><%= review.content %></h6>
+    <p>by <%= review.reviewer %></p>
+  
+
+    <% if((locals.isLoggedIn) && (locals.user.username === review.reviewer)) {%>
+
+<a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'>Edit</a>
+
+
+    <%}%>
+<% }) %>
+<div class='divider'></div>
+
+
+ <% if(locals.isLoggedIn) {%>
+   <div class='card-panel blue lighten-5'>
+   <h4>Review <%=park.parkname%>!</h4>
+<form method="POST" action="/parks/<%= park._id %>/reviews">
+<input placeholder="Give your review a title" name="title"></input>
+<textarea placeholder="Write your review" name="content"></textarea>
+<div style= 'display: none'>
+<input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
 </div>
+
+<button type="submit">Submit</button>
+</form>
+</div>
+<%} else {%>
+
+  <p>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</p>
+    <% } %>

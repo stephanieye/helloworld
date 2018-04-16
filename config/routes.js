@@ -1,6 +1,4 @@
 const router = require('express').Router();
-
-const reviews = require('../controllers/reviews');
 const parks = require('../controllers/parks');
 const users = require('../controllers/users');
 const sessions = require('../controllers/sessions');
@@ -29,28 +27,15 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
-//reviews
-router.route('/reviews')
-  .get(secureRoute, reviews.index)
-  .post(secureRoute, reviews.create);
+// Show user page
+router.route('/users/:id')
+  .get(secureRoute, users.show)
+  .put(secureRoute, users.update)
+  .delete(secureRoute, users.delete);
 
+router.route('/users/:id/edit')
+  .get(secureRoute, users.edit);
 
-router.route('/reviews/new') //this must be first
-  .get(secureRoute, reviews.new);
-
-
-//rubbish to link to park
-router.route('/reviews/park')
-  .get(secureRoute, reviews.park);
-//rubbish
-
-router.route('/reviews/:id')
-  .get(reviews.show)
-  .delete(reviews.delete)
-  .put(reviews.update);
-
-router.route('/reviews/:id/edit')
-  .get(reviews.edit);
 
 //parks
 
@@ -58,7 +43,11 @@ router.route('/parks')
   .get(parks.index)
   .post(parks.create);
 
-router.route('/parks/new') //this must be first
+router.route('/parks/account')
+  .get(parks.account)
+  .post(parks.create);
+
+router.route('/parks/new')
   .get(parks.new);
 
 router.route('/parks/:id')
@@ -69,18 +58,24 @@ router.route('/parks/:id')
 router.route('/parks/:id/edit')
   .get(parks.edit);
 
-router.route('/parks/:id/newreview')
-  .get(parks.newreview);
+router.route('/parks/:id/reviews')
+  .post(parks.reviewCreate);
 
-// router.route('/parks/:id/reviews/:id')
-//   .get(parks.reviews.show)
-//   .delete(parks.reviews.delete)
-//   .put(parks.reviews.update);
+router.route('/parks/:id/reviews/:reviewId')
+  .delete(parks.reviewDelete)
+  .put(parks.reviewUpdate);
+
+
+router.route('/parks/:id/reviews/:reviewId/reviewedit')
+  .get(parks.reviewEdit);
+
 
 //404 not found
 router.route('/*').get((req, res) => {
   req.flash('danger', 'Sorry, that page does not exist');
   res.redirect('/');
 });
+
+
 
 module.exports = router;

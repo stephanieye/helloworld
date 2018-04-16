@@ -1,0 +1,35 @@
+<% if(locals.isLoggedIn) {%>
+
+
+
+  <h3>Hello, <%=locals.user.username%>!
+<h5><a href='../users/<%=user._id%>/edit'>Edit your profile</a></h5>
+<div class='divider'></div>
+
+  <h6>Here are all your reviews of parks:</h6>
+
+  <% parks.forEach((park) => { %>
+
+
+
+  <% park.reviews.forEach((review) => { %>
+
+      <% if(review.reviewer === locals.user.username){ %>
+          <div class='divider'></div>
+        <h4><%=park.parkname%></h4>
+          <p>Title: <%= review.title %></p>
+          <p>Review: <%= review.content %></p>
+            <button><a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'>Edit this review</a></button>
+
+    <% } %>
+
+
+  <% }) %>
+
+
+<%   }) %>
+
+
+
+
+<%}%>
