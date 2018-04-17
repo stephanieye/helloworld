@@ -4,7 +4,7 @@ const Park = require('../models/park');
 function parksIndex(req, res) {
   Park
     .find()
-    .populate('reviews')
+    .populate('reviews review.user')
     .exec()
     .then(parks => {
       res.render('parks/index', {parks});
@@ -13,7 +13,7 @@ function parksIndex(req, res) {
 function parksAccount(req, res) {
   Park
     .find()
-    .populate('reviews')
+    .populate('reviews review.user')
     .exec()
     .then(parks => {
       res.render('parks/account', {parks});
@@ -25,7 +25,7 @@ function parksAccount(req, res) {
 function parksShow(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews reviews.user')
+    .populate('reviews review.user')
     .exec()
     .then(park => {
       res.render('parks/show', {park});
@@ -50,7 +50,7 @@ function parksCreate(req, res) {
 function parksEdit(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews')
+    .populate('reviews review.user')
     .exec()
     .then(park => res.render('parks/edit', {park}));
 }

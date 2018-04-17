@@ -8,7 +8,9 @@ function createRoute(req, res){
   User
     .create(req.body)
     .then(() => {
-      res.redirect('/');
+      req.flash('happy', 'Thanks for registering with us! Now, please log in.');
+      res.redirect('/login');
+
     })
     .catch((err) => {
       if(err.name === 'ValidationError') {
@@ -69,7 +71,7 @@ function deleteRoute(req, res) {
     .findById(req.params.id)
     .exec()
     .then(user => user.remove())
-    .then(() => res.redirect('/parks'));
+    .then(() => res.redirect('/'));
 }
 
 

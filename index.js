@@ -10,6 +10,7 @@ const session = require('express-session');
 
 
 const customresponses = require('./lib/customresponses');
+const authentication = require('./lib/authentication');
 const routes = require('./config/routes');
 const User = require('./models/user');
 const {port, databaseURI} = require('./config/environment');
@@ -40,18 +41,18 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use((req, res, next) => {
-  if(!req.session.userId) return next();
-  User
-    .findById(req.session.userId)
-    .then((user) => {
-      req.session.userId = user._id;
-      res.locals.user = user;
-      req.currentUser = user;
-      res.locals.isLoggedIn = true;
-      next();
-    });
-});
+// app.use((req, res, next) => {
+//   if(!req.session.userId) return next();
+//   User
+//     .findById(req.session.userId)
+//     .then((user) => {
+//       req.session.userId = user._id;
+//       res.locals.user = user;
+//       req.currentUser = user;
+//       res.locals.isLoggedIn = true;
+//       next();
+//     });
+// });
 
 app.use((err, req, res, next) => {
   err.status = err.status || 500;
@@ -61,6 +62,7 @@ app.use((err, req, res, next) => {
   return res.render(`statistics/${err.status}`);
 });
 
+app.use(authentication);
 app.use(routes);
 
 app.listen(port, () => console.log(`Running on port${port}`));
