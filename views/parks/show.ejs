@@ -1,5 +1,7 @@
 <div class="container">
 
+    <img class="responsive-img" src="<%= park.photo %>">
+
   <h3 class= 'col l10'><%= park.parkname %></h3>
 
 
@@ -9,10 +11,12 @@
 
     <h5><%= review.title %></h5>
     <h6><%= review.content %></h6>
-    <p>by <%= review.reviewer %></p>
-  
 
-    <% if((locals.isLoggedIn) && (locals.user.username === review.reviewer)) {%>
+    <% if(review.user) {%>
+    <p>by <%=review.user.username %></p>
+    <% } %>
+
+    <% if((locals.isLoggedIn) && (locals.user._id === review.user)) {%>
 
 <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'>Edit</a>
 

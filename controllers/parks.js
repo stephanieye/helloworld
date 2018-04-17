@@ -25,7 +25,7 @@ function parksAccount(req, res) {
 function parksShow(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews')
+    .populate('reviews reviews.user')
     .exec()
     .then(park => {
       res.render('parks/show', {park});
@@ -76,9 +76,10 @@ function parksDelete(req, res) {
 
 
 function reviewCreateRoute(req, res) {
-  // req.body.user = req.currentUser;
+  req.body.user = req.currentUser;
   Park
     .findById(req.params.id)
+    .populate('users')
     .then(park => {
       park.reviews.push(req.body);
       return park.save();

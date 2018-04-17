@@ -13,6 +13,7 @@ Park.collection.drop();
 
 
 Park.create([{
+  photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/memorials,-fountains-and-statues/diana-memorial-fountain/_gallery/Diana-Memorial-Fountain-from-across-the-Serpentine.jpg/w_1200.jpg',
   parkname: 'Hyde Park',
   reviews: [{
     title: 'A beautiful park',
@@ -24,6 +25,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
   parkname: 'London Fields',
   reviews: [{
     title: 'Good for BBQs',
@@ -35,6 +37,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/620/cached.offlinehbpl.hbpl.co.uk/news/WOH/AerialViewofModelBoatingPondCREDCoL-20170530042222415.jpg',
   parkname: 'Hampstead Heath',
   reviews: [{
     title: 'Skinny-dipping...',
@@ -46,6 +49,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
   parkname: 'Potters Fields Park',
   reviews: [{
     title: 'Great view of Tower Bridge',
@@ -57,6 +61,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
   parkname: 'Victoria Park',
   reviews: [{
     title: 'Boating lake!',
@@ -68,6 +73,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
   parkname: 'Postman\'s Park',
   reviews: [{
     title: 'Lovely lunch spot',
@@ -79,6 +85,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
   parkname: 'Greenwich Park',
   reviews: [{
     title: 'Greenest part of London',
@@ -90,6 +97,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+  photo: 'https://www.gardenvisit.com/uploads/image/image/163/16333/regents_park_1408_jpg_original.jpg',
   parkname: 'Regent\'s Park',
   reviews: [{
     title: 'More than just the zoo',
@@ -101,6 +109,7 @@ Park.create([{
   reviewer: 'Mr James Herriott'
 }]
 },{
+    photo: 'https://i.ytimg.com/vi/KyepI40oCNQ/maxresdefault.jpg',
   parkname: 'Richmond Park',
   reviews: [{
     title: 'Magnificent stags',
