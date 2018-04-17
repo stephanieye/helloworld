@@ -31,6 +31,7 @@
 
         <form method="POST" action="/users/<%= user._id %>">
           <input type="hidden" name="_method" value="DELETE">
+          <%console.log(user._id)%>
           <button class="red btn">Or click here to delete your account</button>
         </form>
 

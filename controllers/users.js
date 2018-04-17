@@ -64,13 +64,12 @@ function updateRoute(req, res, next) {
     });
 }
 
-function deleteRoute(req, res, next) {
+function deleteRoute(req, res) {
   User
     .findById(req.params.id)
     .exec()
     .then(user => user.remove())
-    .then(() => res.redirect('/'))
-    .catch(next);
+    .then(() => res.redirect('/parks'));
 }
 
 
