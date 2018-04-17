@@ -5,10 +5,15 @@
 <h3>Edit your review of <%=park.parkname%></h3>
 <form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id %>'>
  <input type='hidden' name='_method' value='PUT'>
-   <label for="title_field">Title</label>
-<input name="title" value='<%=review.title%>' id='title_field'></input>
+ <div class="input-field col l12">
+<input type='text' name="title" value='<%=review.title%>' id='title_field'></input>
+ <label for="title_field">Title</label>
+ </div>
+  <div class="input-field col l12">
+<textarea type='text' name="content" id='review_field'><%=review.content%></textarea>
    <label for="review_field">Review</label>
-<textarea name="content" id='review_field'><%=review.content%></textarea>
+   </div>
+
 <div style= 'display: none'>
 <input name="reviewer" value="<%=locals.user.username%>" ></input>
 <input type= 'text' name="time" id='reviewdate' value=''></input>
