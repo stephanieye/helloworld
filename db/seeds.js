@@ -16,10 +16,12 @@ Park.create([{
   photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/memorials,-fountains-and-statues/diana-memorial-fountain/_gallery/Diana-Memorial-Fountain-from-across-the-Serpentine.jpg/w_1200.jpg',
   parkname: 'Hyde Park',
   reviews: [{
+    time: 'Mon Jan 07 2018',
     title: 'A beautiful park',
     content: 'Love the swans',
     reviewer: 'Ms Jane Austen'
 }, {
+    time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the lake!',
   reviewer: 'Mr James Herriott'
@@ -28,10 +30,12 @@ Park.create([{
   photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
   parkname: 'London Fields',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Good for BBQs',
     content: 'Great place to spend a sunny afternoon drinking beer with your friends',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the cycle path!',
   reviewer: 'Mr James Herriott'
@@ -44,6 +48,7 @@ Park.create([{
     content: 'The colder the better!',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the baths!',
   reviewer: 'Mr James Herriott'
@@ -52,10 +57,12 @@ Park.create([{
   photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
   parkname: 'Potters Fields Park',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Great view of Tower Bridge',
     content: 'The nearby Bridge Theatre is great too!',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the river!',
   reviewer: 'Mr James Herriott'
@@ -64,10 +71,12 @@ Park.create([{
   photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
   parkname: 'Victoria Park',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Boating lake!',
     content: 'Definitely rent a boat and go for a row!',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the lake!',
   reviewer: 'Mr James Herriott'
@@ -76,10 +85,12 @@ Park.create([{
   photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
   parkname: 'Postman\'s Park',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Lovely lunch spot',
     content: 'A quiet oasis in the city',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the road!',
   reviewer: 'Mr James Herriott'
@@ -88,10 +99,12 @@ Park.create([{
   photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
   parkname: 'Greenwich Park',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Greenest part of London',
     content: 'Definitely visit the observatory!',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the observatory!',
   reviewer: 'Mr James Herriott'
@@ -112,10 +125,12 @@ Park.create([{
     photo: 'https://i.ytimg.com/vi/KyepI40oCNQ/maxresdefault.jpg',
   parkname: 'Richmond Park',
   reviews: [{
+    time: 'Sat Dec 25 2017',
     title: 'Magnificent stags',
     content: 'Really makes you feel close to nature',
     reviewer: 'Ms Jane Austen'
 }, {
+  time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the stags!',
   reviewer: 'Mr James Herriott'
