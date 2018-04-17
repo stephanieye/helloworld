@@ -20,7 +20,7 @@
         <h4><%=park.parkname%></h4>
           <p>Title: <%= review.title %></p>
           <p>Review: <%= review.content %></p>
-            <button><a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'>Edit this review</a></button>
+            <a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'><button class="waves-effect waves-light green btn">Edit this review</button></a>
 
     <% } %>
 

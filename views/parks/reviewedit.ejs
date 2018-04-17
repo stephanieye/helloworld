@@ -2,9 +2,7 @@
   <div class='card-panel blue lighten-5'>
 
 
-
-
-  <h3>Edit your review of <%=park.parkname%></h3>
+<h3>Edit your review of <%=park.parkname%></h3>
 <form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id %>'>
  <input type='hidden' name='_method' value='PUT'>
 <input name="title" value='<%=review.title%>'></input>
@@ -12,14 +10,19 @@
 <div style= 'display: none'>
 <input name="reviewer" value="<%=locals.user.username%>" ></input>
 </div>
-<button>Submit</button>
+<button class= "waves-effect waves-light green btn">Submit</button>
 </form>
+
+<br \>
 
 
 
 <form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id%>'>
 <input type='hidden' name='_method' value='DELETE'>
-<button>Delete this review</button>
+<button class="waves-effect waves-light red btn">Delete this review</button>
 </form>
+
+
+
 </div>
 <%} %>

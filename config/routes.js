@@ -14,6 +14,7 @@ function secureRoute(req, res, next){
 }
 
 router.get('/', (req, res) => res.render('home'));
+router.get('', (req, res) => res.render('home'));
 
 //authenticating the user
 router.route('/createaccount')

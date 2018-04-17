@@ -20,7 +20,7 @@
         <%}%>
 
     <% if((locals.isLoggedIn) && ((locals.user.id === (review.user && review.user.id))  ||  (locals.user.username === review.reviewer))) {%>
-      <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'>Edit</a>
+      <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
       <%}%>
 <% }) %>
 <div class='divider'></div>
@@ -36,7 +36,7 @@
 <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
 </div>
 
-<button type="submit">Submit</button>
+<button class ="waves-effect waves-light green btn">Submit</button>
 </form>
 </div>
 <%} else {%>

@@ -6,7 +6,7 @@
     <ul class='right'>
         <li><a href="/parks" class='brown-text'>View All Parks</a></li>
       <% if (locals.isLoggedIn) { %>
-        <li><a href ="/logout" class='brown-text' >Logout (signed in as <%= locals.user.username %>)</a></li>
+        <li><a href ="/logout" class='brown-text' >Logout (signed in as <em><%= locals.user.username %></em>)</a></li>
         <li><a href ="/parks/account" class='brown-text' >Your account</a></li>
         <%  } else { %>
           <li><a href ="/createaccount" class='brown-text'>Create an account</a></li>
