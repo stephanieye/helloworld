@@ -12,6 +12,7 @@
     <h5><%= review.title %></h5>
     <h6><%= review.content %></h6>
   <p><%=review.user%><p>
+  <p><%=review.time%><p>
 
     <% if(review.user) {%>
     <p>by <%=review.user.username %></p>
@@ -27,13 +28,14 @@
 
 
  <% if(locals.isLoggedIn) {%>
-   <div class='card-panel blue lighten-5'>
+   <div class='card-panel blue lighten-5' id='submit' >
    <h4>Review <%=park.parkname%>!</h4>
 <form method="POST" action="/parks/<%= park._id %>/reviews">
 <input placeholder="Give your review a title" name="title"></input>
 <textarea placeholder="Write your review" name="content"></textarea>
 <div style= 'display: none'>
 <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
+<input type= 'text' name="time" id='reviewdate' value=''></input>
 </div>
 
 <button class ="waves-effect waves-light green btn">Submit</button>
