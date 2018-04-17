@@ -5,8 +5,10 @@
 <h3>Edit your review of <%=park.parkname%></h3>
 <form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id %>'>
  <input type='hidden' name='_method' value='PUT'>
-<input name="title" value='<%=review.title%>'></input>
-<textarea name="content"><%=review.content%></textarea>
+   <label for="title_field">Title</label>
+<input name="title" value='<%=review.title%>' id='title_field'></input>
+   <label for="review_field">Review</label>
+<textarea name="content" id='review_field'><%=review.content%></textarea>
 <div style= 'display: none'>
 <input name="reviewer" value="<%=locals.user.username%>" ></input>
 <input type= 'text' name="time" id='reviewdate' value=''></input>
@@ -16,14 +18,15 @@
 <div class = 'row'>
 <br />
 <div class = 'col s12'>
-<div class = 'col s6'>
+<div class = 'col s6 left-align'>
+
 
 <button class= "waves-effect waves-light green btn">Submit</button>
 </form>
 
 </div>
 
-<div class = 'col s6'>
+<div class = 'col s6 right-align'>
 
 <form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id%>'>
 <input type='hidden' name='_method' value='DELETE'>
