@@ -17,6 +17,7 @@
     <% } else {%>
         <%=review.reviewer%>
         <%}%> on <%=review.time%></p>
+        <p>Rating: <%=review.rating%>/5</p>
   <h6><%= review.content %></h6>
   </div>
   <div class= 'col s2'>
@@ -34,17 +35,23 @@
 
    <div class='card-panel blue lighten-5' id='submit' >
    <h4>Review <%=park.parkname%>!</h4>
-<form method="POST" action="/parks/<%= park._id %>/reviews">
-
+   <div class=row>
+<form class="col s12" method="POST" action="/parks/<%= park._id %>/reviews">
 
 <div class="input-field col l12">
 <input type='text' name="title" id='title_field'></input>
   <label for="title_field">title</label>
 </div>
+
+<input type='number' name="rating" id='rating_field'></input>
+  <label for="rating_field">rating (out of 5)</label>
+</div>
+
 <div class="input-field col l12">
-<textarea type= 'text' name="content" id='review_field'></textarea>
+<textarea type= 'text' name="content" id='review_field'  class="materialize-textarea"></textarea>
 <label for="review_field">review</label>
 </div>
+
 
 <div style= 'display: none'>
 <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
@@ -54,6 +61,9 @@
 <button class ="waves-effect waves-light green btn">Submit</button>
 </form>
 </div>
+
+</div>
+
 <%} else {%>
 
   <p>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</p>

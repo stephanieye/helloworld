@@ -21,12 +21,14 @@ Park.create([{
     time: 'Mon Jan 07 2018',
     title: 'A beautiful park',
     content: 'Love the swans',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
     time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the lake!',
-  reviewer: 'Mr James Herriott'
+  rating: 4,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
@@ -35,25 +37,30 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Good for BBQs',
     content: 'Great place to spend a sunny afternoon drinking beer with your friends',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the cycle path!',
-  reviewer: 'Mr James Herriott'
+  rating: 3,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/620/cached.offlinehbpl.hbpl.co.uk/news/WOH/AerialViewofModelBoatingPondCREDCoL-20170530042222415.jpg',
   parkname: 'Hampstead Heath',
   reviews: [{
+    time: 'Mon Jan 07 2018',
     title: 'Skinny-dipping...',
     content: 'The colder the better!',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the baths!',
-  reviewer: 'Mr James Herriott'
+  rating: 1,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
@@ -62,12 +69,14 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Great view of Tower Bridge',
     content: 'The nearby Bridge Theatre is great too!',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the river!',
-  reviewer: 'Mr James Herriott'
+  rating: 5,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
@@ -76,12 +85,14 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Boating lake!',
     content: 'Definitely rent a boat and go for a row!',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the lake!',
-  reviewer: 'Mr James Herriott'
+  rating: 2,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
@@ -90,12 +101,14 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Lovely lunch spot',
     content: 'A quiet oasis in the city',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the road!',
-  reviewer: 'Mr James Herriott'
+  rating: 2,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
@@ -104,12 +117,14 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Greenest part of London',
     content: 'Definitely visit the observatory!',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the observatory!',
-  reviewer: 'Mr James Herriott'
+  rating: 1,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
   photo: 'https://www.gardenvisit.com/uploads/image/image/163/16333/regents_park_1408_jpg_original.jpg',
@@ -117,11 +132,13 @@ Park.create([{
   reviews: [{
     title: 'More than just the zoo',
     content: 'Lovely for an afternoon\'s ramble',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the zoo!',
-  reviewer: 'Mr James Herriott'
+  rating: 5,
+  reviewer: 'Mr Charles Dickens'
 }]
 },{
     photo: 'http://www.adrianmoysey.co.uk/img/s6/v151/p1043080770-3.jpg',
@@ -130,12 +147,14 @@ Park.create([{
     time: 'Sat Dec 25 2017',
     title: 'Magnificent stags',
     content: 'Really makes you feel close to nature',
+    rating: 4,
     reviewer: 'Ms Jane Austen'
 }, {
   time: 'Sat Dec 25 2017',
   title: 'Good for dog-walking',
   content: 'Just make sure they don\'t run into the stags!',
-  reviewer: 'Mr James Herriott'
+  rating: 2,
+  reviewer: 'Mr Charles Dickens'
 }]
 }])
   .catch(err => console.log(err))
