@@ -62,6 +62,14 @@ app.use((err, req, res, next) => {
   return res.render(`statistics/${err.status}`);
 });
 
+app.use((err, req, res, next) => {
+  err.status = err.status || 400;
+  err.message = err.message || 'Input Error';
+  res.status(err.status);
+  res.locals.err = err;
+  return res.render(`statistics/${err.status}`);
+});
+
 app.use(authentication);
 app.use(routes);
 

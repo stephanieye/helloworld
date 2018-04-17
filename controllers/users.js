@@ -14,6 +14,7 @@ function createRoute(req, res){
     })
     .catch((err) => {
       if(err.name === 'ValidationError') {
+        req.flash('danger', 'Sorry, you might have typed something incorrectly while registering. Please try again.');
         return res.status(400).render('users/index', {message: err.toString()});
       }
     });
