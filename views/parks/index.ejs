@@ -1,11 +1,26 @@
 <h3>Parks</h3>
-
+  <div class="row">
+    <div class= 'col s12'>
 <% parks.forEach((park) => { %>
 
 
+      <div class="col s4">
+        <div class="card small">
+          <div class="card-image">
+            <img src="<%= park.photo %>">
+          </div>
+            <a href='parks/<%= park._id %>'><h4><%= park.parkname %></h4></a>
+        </div>
+      </div>
 
-        <p> <a href="/parks/<%=park._id%>"> <%= park.parkname %> </h3></a></p>
+
 
     <%   }) %>
+
+  </div>
+</div>
+
+
+
 
     <p>Don't see a London park you love? <a href='mailto:parklife@parklife.io'>Suggest it to us!</a></p>
