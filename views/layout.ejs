@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var reviewdate = document.getElementById('reviewdate');
   submit.addEventListener('mouseover', function(){
     var x = new Date();
-    var y = x.toDateString();
+    var y = x.toUTCString();
     reviewdate.value = y;
   });
 });

@@ -25,12 +25,14 @@ function parksAccount(req, res) {
 function parksShow(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews review.user')
+    .populate('reviews.user')
     .exec()
     .then(park => {
       res.render('parks/show', {park});
     });
 }
+
+
 
 function parksNew(req, res) {
   res.render('parks/new', {error: null});

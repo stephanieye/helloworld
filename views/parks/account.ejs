@@ -6,6 +6,8 @@
 <h5><a href='../users/<%=user._id%>/edit'>Edit your profile</a></h5>
 <div class='divider'></div>
 
+
+
   <h6>Here are all your reviews of parks:</h6>
 
   <% parks.forEach((park) => { %>
@@ -23,14 +25,7 @@
             <a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'><button class="waves-effect waves-light green btn">Edit this review</button></a>
 
     <% } %>
-
-
   <% }) %>
-
-
 <%   }) %>
-
-
-
 
 <%}%>
