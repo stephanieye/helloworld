@@ -12,16 +12,20 @@
     <h5><%= review.title %></h5>
     <h6><%= review.content %></h6>
 
+
     <% if(review.user) {%>
+      <%console.log(review.user)%>
     <p>by <%=review.user.username %></p>
-    <% } %>
 
-    <% if((locals.isLoggedIn) && (locals.user._id === review.user)) {%>
+    <% } else {%>
+        <p>by <%=review.reviewer%></p>
+        <%}%>
 
-<a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'>Edit</a>
+        <% if((locals.isLoggedIn) && (locals.user.id === (review.user && review.user.id))) {%>
 
+      <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'>Edit</a>
 
-    <%}%>
+      <%}%>
 <% }) %>
 <div class='divider'></div>
 

@@ -2,9 +2,11 @@
   <div class='card-panel blue lighten-5'>
 
 
-  <h3>Edit your review of <%=park.parkname%></h3>
-<form method='POST' action='/parks/<%=park._id %>/reviews/'>
 
+
+  <h3>Edit your review of <%=park.parkname%></h3>
+<form method='POST' action='/parks/<%=park._id %>/reviews/<%=review._id %>'>
+ <input type='hidden' name='_method' value='PUT'>
 <input name="title" value='<%=review.title%>'></input>
 <textarea name="content"><%=review.content%></textarea>
 <div style= 'display: none'>
@@ -21,6 +23,3 @@
 </form>
 </div>
 <%} %>
-
-
- <%# <input type='hidden' name='_method' value='PUT'> %>

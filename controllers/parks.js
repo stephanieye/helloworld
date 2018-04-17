@@ -116,9 +116,10 @@ function reviewUpdateRoute(req, res) {
     .then(park => {
       var review = park.reviews.id(req.params.reviewId);
       review = Object.assign(review, req.body);
-      return review.save;
+      review.save();
+      return park.save();
     })
-    .then(review => res.redirect(`reviews/${review._id}`));
+    .then(park => res.redirect(`/parks/${park._id}`));
 }
 
 
