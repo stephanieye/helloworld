@@ -6,9 +6,11 @@ mongoose.connect(databaseURI);
 
 
 const Park = require('../models/park');
+const User = require('../models/user');
 
 
 Park.collection.drop();
+User.collection.drop();
 
 
 

@@ -9,10 +9,11 @@ function createRoute(req, res) {
     .findOne({email: req.body.email})
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) {
+        req.flash('danger', 'Sorry, either your email or password is wrong. Please try again!');
         res.status(401).render('sessions/index', {message: 'Sorry, either your email or password is wrong'});
       }
       req.session.userId = user.id;
-      res.redirect('/parks');
+      res.redirect('/parks/account');
     });
 }
 

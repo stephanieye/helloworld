@@ -8,7 +8,7 @@ function createRoute(req, res){
   User
     .create(req.body)
     .then(() => {
-      req.flash('happy', 'Thanks for registering with us! Now, please log in.');
+      req.flash('happy', 'Thanks for registering with Parklife! Now, please log in.');
       res.redirect('/login');
 
     })
