@@ -1,7 +1,8 @@
 <div class="container">
-
-<iframe width="600" height="450" frameborder="0" style="border:0" src="<%=park.googlemap%>" allowfullscreen></iframe>
-  <h3 class= 'col l10'><%= park.parkname %></h3>
+<div class = 'col s12' style= 'margin-top: 20px'>
+<iframe width="100%" height="300px" frameborder="0" style="border:0" src="<%=park.googlemap%>" allowfullscreen></iframe>
+</div>
+  <h3 class= 'col s12'><%= park.parkname %></h3>
 
   <% park.reviews.forEach((review) => { %>
  <div class='divider'></div>
