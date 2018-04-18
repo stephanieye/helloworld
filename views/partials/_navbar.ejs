@@ -1,19 +1,23 @@
 <nav>
   <div class="nav-wrapper teal lighten-5">
     <ul class='left'>
-    <a href="/parks" class='brown-text brand-logo hide-on-med-and-down'><i class="material-icons">local_florist</i>Parklife</a>
+    <li><a href="/parks" class='brown-text brand-logo hide-on-med-and-down'><i class="material-icons">local_florist</i>Parklife</a></li>
     </ul>
+    <ul class='left'>
+      <li><a href="/parks" class='brown-text hide-on-med-and-up'><i class="material-icons">local_florist</i></a></li>
+    </ul>
+
+
     <ul class='right'>
-        <li><a href="/parks" class='brown-text'>View All Parks</a></li>
+        <li><a href="/parks" class='brown-text'>All Parks</a></li>
       <% if (locals.isLoggedIn) { %>
-        <li><a href ="/logout" class='brown-text' >Logout (signed in as <em><%= locals.user.username %></em>)</a></li>
-        <li><a href ="/parks/account" class='brown-text' >Your account</a></li>
+        <li><a href ="/logout" class='brown-text' >Logout</a></li>
+        <li><a href ="/parks/account" class='brown-text' ><span class='hide-on-small-and-down'>Your account</span> (<em><%= locals.user.username %></em>)</a></li>
         <%  } else { %>
           <li><a href ="/createaccount" class='brown-text'>Create an account</a></li>
           <li><a href ="/login" class='brown-text'>Log in</a></li>
           <% } %>
-
-
         </ul>
       </div>
+      </ul>
     </nav>

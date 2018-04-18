@@ -4,13 +4,13 @@
 <% parks.forEach((park) => { %>
 
 
-      <div class="col s4">
+      <div class="col s12 m4">
         <div class="card small">
-          <div class="card-image">
+          <a href='parks/<%= park._id %>' ><div class="card-image">
             <img src="<%= park.photo %>">
           </div>
           <div class= 'center-align'>
-            <a href='parks/<%= park._id %>' ><h4><%= park.parkname %></h4></a>
+            <h4><%= park.parkname %></h4></a>
             </div>
         </div>
       </div>

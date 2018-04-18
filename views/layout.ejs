@@ -6,42 +6,41 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
 
-var submit = document.getElementById('submit');
-  var reviewdate = document.getElementById('reviewdate');
-  submit.addEventListener('mouseover', function(){
-    var x = new Date();
-    var y = x.toUTCString();
-    reviewdate.value = y;
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var submit = document.getElementById('submit');
+    var reviewdate = document.getElementById('reviewdate');
+    submit.addEventListener('mouseover', function(){
+      var x = new Date();
+      var y = x.toUTCString();
+      reviewdate.value = y;
+    });
   });
-
-});
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-var curtain = document.getElementById('curtain');
+  var curtain = document.getElementById('curtain');
   var url_field = document.getElementById('url_field');
   curtain.addEventListener('click', function(){
     if (url_field.value === '') {
-    var a = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Birnbaum_am_Lerchenberg_retouched.jpg/310px-Birnbaum_am_Lerchenberg_retouched.jpg';
-    url_field.value = a;
-  }
+      var a = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Birnbaum_am_Lerchenberg_retouched.jpg/310px-Birnbaum_am_Lerchenberg_retouched.jpg';
+      url_field.value = a;
+    }
   });
-
 });
 </script>
 
 
-  <title>Parklife</title>
+<title>Parklife</title>
 </head>
 <body>
   <% include ./partials/_navbar %>
   <% include ./partials/_danger %>
   <% include ./partials/_happy %>
-<div class="container">
+  <div class="container">
     <%- body %>
-</div>
+  </div>
 </body>
 </html>
