@@ -17,15 +17,21 @@ var submit = document.getElementById('submit');
     reviewdate.value = y;
   });
 
-
-
-
-
-
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var curtain = document.getElementById('curtain');
+  var url_field = document.getElementById('url_field');
+  curtain.addEventListener('click', function(){
+    if (url_field.value === '') {
+    var a = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Birnbaum_am_Lerchenberg_retouched.jpg/310px-Birnbaum_am_Lerchenberg_retouched.jpg';
+    url_field.value = a;
+  }
+  });
 
 });
 </script>
-
 
   <title>Parklife</title>
 </head>
