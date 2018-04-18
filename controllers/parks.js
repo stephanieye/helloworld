@@ -1,11 +1,12 @@
 const Park = require('../models/park');
 const Review = require('../models/park');
+const User = require('../models/user');
 
 
 function parksIndex(req, res) {
   Park
     .find()
-    .populate('reviews review.user')
+    .populate('users reviews review.user')
     .exec()
     .then(parks => {
       res.render('parks/index', {parks});
@@ -14,7 +15,7 @@ function parksIndex(req, res) {
 function parksAccount(req, res) {
   Park
     .find()
-    .populate('reviews review.user')
+    .populate('users reviews review.user')
     .exec()
     .then(parks => {
       res.render('parks/account', {parks});
@@ -26,7 +27,7 @@ function parksAccount(req, res) {
 function parksShow(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews.user')
+    .populate('users reviews reviews.user')
     .exec()
     .then(park => {
       res.render('parks/show', {park});
@@ -53,7 +54,7 @@ function parksCreate(req, res) {
 function parksEdit(req, res) {
   Park
     .findById(req.params.id)
-    .populate('reviews review.user')
+    .populate('users reviews review.user')
     .exec()
     .then(park => res.render('parks/edit', {park}));
 }
@@ -82,11 +83,14 @@ function reviewCreateRoute(req, res) {
 
   Park
     .findById(req.params.id)
+    .populate('users reviews review.user')
     .exec()
     .then(park => {
       req.body.user = req.currentUser;
       park.reviews.push(req.body);
+      console.log(req.body);
       return park.save();
+
     })
     .then(park => {
       res.redirect(`/parks/${park._id}`);

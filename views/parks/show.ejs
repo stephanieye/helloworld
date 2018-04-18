@@ -13,9 +13,10 @@
 <div class= 'col s9'>
     <h5><%= review.title %></h5>
     <p>by <%if (review.user){ %>
-    <%=review.user.username%>
+    <a href='/users/<%=review.user._id%>'><%=review.user.username%></a>
   <%} else { %>
-    <%=review.reviewer%>
+    <a href='/users/<%=review.userid%>'><%=review.reviewer%></a>
+    <p><%=review.userid%></p>
   <% } %> on <%=review.time%></p>
         <p>Rating: <%=review.rating%>/5</p>
   <h6><%= review.content %></h6>
@@ -56,7 +57,7 @@
 
 <div style= 'display: none'>
 <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
-<input placeholder="<%=locals.user.username%>" name="user" value="<%=locals.user.username%>" ></input>
+<input placeholder="" name="userid" value="<%=locals.user.id%>" ></input>
 <input type= 'text' name="time" id='reviewdate' value=''></input>
 </div>
 

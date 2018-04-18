@@ -7,6 +7,7 @@ const reviewSchema = new mongoose.Schema({
   reviewer: {type: String, required: true},
   rating: {type: Number, min: 1, max: 5, default: 3},
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  userid: String,
   time: { type: String }
 });
 
@@ -19,5 +20,5 @@ const parkSchema = new mongoose.Schema({
   reviews: [ reviewSchema ]
 });
 
-
+module.exports = mongoose.model('Review', reviewSchema);
 module.exports = mongoose.model('Park', parkSchema);
