@@ -1,26 +1,29 @@
 <div class="container">
 <div class = 'col s12' style= 'margin-top: 20px'>
-<iframe width="100%" height="300px" frameborder="0" style="border:0" src="<%=park.googlemap%>" allowfullscreen></iframe>
+<iframe width="100%" height="300px" frameborder="0" style="border:1px solid grey" src="<%=park.googlemap%>" allowfullscreen></iframe>
 </div>
   <h3 class= 'col s12'><%= park.parkname %></h3>
 
   <% park.reviews.forEach((review) => { %>
- <div class='divider'></div>
+
 <div class='row'>
 <div class= 'col s12'>
 
-<div class= 'col s10'>
+<div class= 'col s12'>
     <h5><%= review.title %></h5>
+</div>
+
 <div class= 'row'>
-<div class= 'col s2'>
+
+<div class= 'col s4 m2'>
 <% if (review.user){ %>
-<img class='responsive-img' src='<%=review.user.url%>' style= 'margin-top: 20px; border-radius: 20px;'>
+<img class='circle responsive-img' src='<%=review.user.url%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
 <%} else {%>
-<img class='responsive-img' src='<%=review.reviewerurl%>' style= 'margin-top: 20px; border-radius: 20px;'>
+<img class='circle responsive-img' src='<%=review.reviewerurl%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
 <%}%>
 </div>
 
-<div class= 'col s8'>
+<div class= 'col s6 m8'>
     <p>by <%if (review.user){ %>
     <%=review.user.username%>
   <%} else { %>
@@ -28,23 +31,24 @@
   <% } %> on <%=review.time%>
   <br />
     Rating: <%=review.rating%>/5</p>
-</div>
-</div>
-
-
-
-
-  <h6><%= review.content %></h6>
+    <h6><%= review.content %></h6>
   </div>
-  <div class= 'col s2'>
+
+  <div class= 'col s2 m2'>
   <br />
     <% if((locals.isLoggedIn) && ((locals.user.id === (review.user && review.user.id))  ||  (locals.user.username === review.reviewer))) {%>
       <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
       <%}%>
       </div>
+      </div>
 
 </div>
+
+
 </div>
+
+
+
  <div class='divider'></div>
 <% }) %>
 <br />
@@ -86,5 +90,5 @@
 
 <%} else {%>
 
-  <p>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</p>
+  <h6>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</h6>
     <% } %>
