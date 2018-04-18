@@ -12,11 +12,9 @@
 
   <% parks.forEach((park) => { %>
 
-
-
   <% park.reviews.forEach((review) => { %>
 
-  <% if(locals.user.username === review.reviewer) {%>
+  <% if(locals.user.username === review.reviewer){%>
 
           <div class='divider'></div>
         <h4><%=park.parkname%></h4>

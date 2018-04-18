@@ -1,4 +1,5 @@
 const Park = require('../models/park');
+const Review = require('../models/park');
 
 
 function parksIndex(req, res) {
@@ -78,20 +79,25 @@ function parksDelete(req, res) {
 
 
 function reviewCreateRoute(req, res) {
-  req.body.user = req.currentUser;
+
   Park
     .findById(req.params.id)
-    .populate('users')
+    .exec()
     .then(park => {
+      req.body.user = req.currentUser;
       park.reviews.push(req.body);
       return park.save();
     })
-    .then(park => res.redirect(`/parks/${park._id}`));
+    .then(park => {
+      res.redirect(`/parks/${park._id}`);
+    })
+    .catch(err => console.log(err));
 }
 
 function reviewDeleteRoute(req, res) {
   Park
     .findById(req.params.id)
+    .exec()
     .then(park => {
       const review = park.reviews.id(req.params.reviewId);
       review.remove();
