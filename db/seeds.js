@@ -32,6 +32,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   .create([{
     photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/memorials,-fountains-and-statues/diana-memorial-fountain/_gallery/Diana-Memorial-Fountain-from-across-the-Serpentine.jpg/w_1200.jpg',
     parkname: 'Hyde Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhRoYKUkFdkgRDL20SU9sr9E&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Mon Jan 07 2018 21:09:09 GMT',
       title: 'A beautiful park',
@@ -50,6 +51,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
     parkname: 'London Fields',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJR2uYCeYcdkgRx1pVpFWvdQM&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Good for BBQs',
@@ -68,6 +70,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/620/cached.offlinehbpl.hbpl.co.uk/news/WOH/AerialViewofModelBoatingPondCREDCoL-20170530042222415.jpg',
     parkname: 'Hampstead Heath',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIzJDyggadkgROFAV19Ti070&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Mon Jan 07 2018 21:09:09 GMT',
       title: 'Skinny-dipping...',
@@ -86,6 +89,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
     parkname: 'Potters Fields Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJfdkOjEUDdkgRYGBQ5bvKWlo&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Great view of Tower Bridge',
@@ -104,6 +108,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
     parkname: 'Victoria Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJHUND2RgddkgRarf7ZQfLCw4&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Boating lake!',
@@ -122,6 +127,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
     parkname: 'Postman\'s Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJNz1L7lQbdkgRHKuTVhZjwx0&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Lovely lunch spot',
@@ -140,6 +146,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
     parkname: 'Greenwich Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJaeUYnoQCdkgR0Fxns5NICw4&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Greenest part of London',
@@ -158,6 +165,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'https://www.gardenvisit.com/uploads/image/image/163/16333/regents_park_1408_jpg_original.jpg',
     parkname: 'Regent\'s Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc8TTcd8adkgRcx43bnFBKPU&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Mon Jan 07 2018 21:09:09 GMT',
       title: 'More than just the zoo',
@@ -176,6 +184,7 @@ url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-
   },{
     photo: 'http://www.adrianmoysey.co.uk/img/s6/v151/p1043080770-3.jpg',
     parkname: 'Richmond Park',
+    googlemap: 'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_dGXYaUOdkgRjQQ6Whq-jBM&key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w',
     reviews: [{
       time: 'Sat Dec 25 2017 21:09:09 GMT',
       title: 'Magnificent stags',

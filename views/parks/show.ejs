@@ -1,10 +1,7 @@
 <div class="container">
 
-    <img class="responsive-img" src="<%= park.photo %>" style='margin-top: 20px'>
-
+<iframe width="600" height="450" frameborder="0" style="border:0" src="<%=park.googlemap%>" allowfullscreen></iframe>
   <h3 class= 'col l10'><%= park.parkname %></h3>
-
-
 
   <% park.reviews.forEach((review) => { %>
  <div class='divider'></div>

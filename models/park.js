@@ -17,6 +17,7 @@ const reviewSchema = new mongoose.Schema({
 const parkSchema = new mongoose.Schema({
   photo: String,
   parkname: {type: String, required: true},
+  googlemap: String,
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   reviews: [ reviewSchema ]
 });
