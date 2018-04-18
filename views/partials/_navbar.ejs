@@ -12,7 +12,7 @@
         <li><a href="/parks" class='brown-text'><h6>All Parks</h6></a></li>
       <% if (locals.isLoggedIn) { %>
         <li><a href ="/logout" class='brown-text' ><h6>Logout</h6></a></li>
-        <li><a href ="/parks/account" class='brown-text' ><span class='hide-on-small-and-down'><h6>Your account</span> (<em><%= locals.user.username %></em>)</h6></a></li>
+        <li><a href ="/parks/account" class='brown-text' ><h6><em><%= locals.user.username %></em></h6></a></li>
         <%  } else { %>
           <li><a href ="/createaccount" class='brown-text'><h6>Create an account</h6></a></li>
           <li><a href ="/login" class='brown-text'><h6>Log in</h6></a></li>
