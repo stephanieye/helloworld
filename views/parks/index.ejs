@@ -12,6 +12,43 @@
           <div class= 'center-align'>
             <h4><%= park.parkname %></h4></a>
             </div>
+
+
+              <%var array = [];%>
+
+
+            <% park.reviews.forEach((review) => { %>
+
+              <%array.push(review.rating)%>
+              <%var ave = array.reduce((total, rate) => total + rate) / array.length;%>
+              <%review.result = ave%>
+
+            <%})%>
+
+            <%var star=park.reviews[park.reviews.length-1].result%>
+            <p class='center-align'>
+            <%if (star === 5) {%>
+              &#9733;&#9733;&#9733;&#9733;&#9733; (<%= park.reviews.length %> reviews)
+              <%} else if (star >= 4.5) {%>
+              &#9733;&#9733;&#9733;&#9733;&#189; (<%= park.reviews.length %> reviews)
+            <%} else if (star === 4) {%>
+              &#9733;&#9733;&#9733;&#9733;&#9734; (<%= park.reviews.length %> reviews)
+              <%} else if (star >= 3.5) {%>
+              &#9733;&#9733;&#9733;&#189;&#9734; (<%= park.reviews.length %> reviews)
+            <%} else if (star === 3) {%>
+              &#9733;&#9733;&#9733;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+              <%} else if (star >= 2.5) {%>
+              &#9733;&#9733;&#189;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+            <%} else if (star === 2) {%>
+            &#9733;&#9733;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+            <%} else if (star >= 1.5) {%>
+            &#9733;&#189;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+            <%} else {%>
+            &#9733;&#9734;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+            <%} %>
+            </p>
+
+
         </div>
       </div>
 

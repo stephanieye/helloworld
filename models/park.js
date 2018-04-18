@@ -9,7 +9,8 @@ const reviewSchema = new mongoose.Schema({
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   userid: String,
   reviewerurl: String,
-  time: { type: String }
+  time: { type: String },
+  result: Number
 });
 
 
