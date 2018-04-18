@@ -30,7 +30,17 @@
     <%=review.reviewer%>
   <% } %> on <%=review.time%>
   <br />
-    Rating: <%=review.rating%>/5</p>
+  <%if (review.rating === 5) {%>
+    &#9733;&#9733;&#9733;&#9733;&#9733;
+<%} else if (review.rating === 4) {%>
+    &#9733;&#9733;&#9733;&#9733;&#9734;
+<%} else if (review.rating === 3) {%>
+    &#9733;&#9733;&#9733;&#9734;&#9734;
+<%} else if (review.rating === 2) {%>
+  &#9733;&#9733;&#9734;&#9734;&#9734;
+<%} else {%>
+  &#9733;&#9734;&#9734;&#9734;&#9734;
+  <%} %>
     <h6><%= review.content %></h6>
   </div>
 
