@@ -8,6 +8,7 @@ const reviewSchema = new mongoose.Schema({
   rating: {type: Number, min: 1, max: 5, default: 3},
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   userid: String,
+  reviewerurl: String,
   time: { type: String }
 });
 

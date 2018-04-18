@@ -1,9 +1,24 @@
-<% if(locals.isLoggedIn) {%>
 
 
+<% if(locals.isLoggedIn)  {%>
 
+<div class= 'col s12'>
+<div class='row'>
+<div class = ' col s3'>
+<img src = '<%=locals.user.url%>' class = 'responsive-img'>
+</div>
+
+
+<div class= 'col s9'>
   <h3>Hello, <%=locals.user.username%>!</h3>
 <h5><a href='../users/<%=user._id%>/edit'>Edit your profile</a></h5>
+</div>
+
+
+</div>
+</div>
+
+
 <div class='divider'></div>
 
 
@@ -17,7 +32,7 @@
   <% if(locals.user.username === review.reviewer){%>
 
           <div class='divider'></div>
-        <h4><%=park.parkname%></h4>
+        <a href='<%=park._id%>'><h4><%=park.parkname%></h4></a>
           <p>Title: <%= review.title %></p>
           <p>Review: <%= review.content %></p>
             <a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'><button class="waves-effect waves-light green btn">Edit this review</button></a>
@@ -26,4 +41,4 @@
   <% }) %>
 <%   }) %>
 
-<%}%>
+<%} %>

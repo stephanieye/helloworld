@@ -10,15 +10,32 @@
  <div class='divider'></div>
 <div class='row'>
 <div class= 'col s12'>
-<div class= 'col s9'>
+
+<div class= 'col s10'>
     <h5><%= review.title %></h5>
+<div class= 'row'>
+<div class= 'col s2'>
+<% if (review.user){ %>
+<img class='responsive-img' src='<%=review.user.url%>' style= 'margin-top: 20px; border-radius: 20px;'>
+<%} else {%>
+<img class='responsive-img' src='<%=review.reviewerurl%>' style= 'margin-top: 20px; border-radius: 20px;'>
+<%}%>
+</div>
+
+<div class= 'col s8'>
     <p>by <%if (review.user){ %>
-    <a href='/users/<%=review.user._id%>'><%=review.user.username%></a>
+    <%=review.user.username%>
   <%} else { %>
-    <a href='/users/<%=review.userid%>'><%=review.reviewer%></a>
-    <p><%=review.userid%></p>
-  <% } %> on <%=review.time%></p>
-        <p>Rating: <%=review.rating%>/5</p>
+    <%=review.reviewer%>
+  <% } %> on <%=review.time%>
+  <br />
+    Rating: <%=review.rating%>/5</p>
+</div>
+</div>
+
+
+
+
   <h6><%= review.content %></h6>
   </div>
   <div class= 'col s2'>
@@ -27,6 +44,7 @@
       <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
       <%}%>
       </div>
+
 </div>
 </div>
  <div class='divider'></div>
@@ -59,6 +77,7 @@
 <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
 <input placeholder="" name="userid" value="<%=locals.user.id%>" ></input>
 <input type= 'text' name="time" id='reviewdate' value=''></input>
+<input name="reviewerurl" id='' value='<%=locals.user.url%>'></input>
 </div>
 
 <button class ="waves-effect waves-light green btn">Submit</button>

@@ -18,11 +18,13 @@ User
   username: 'Ms Jane Austen',
   email: 'jane@austen.com',
   password: 'jane',
-  passwordConfirmation: 'jane'
+  passwordConfirmation: 'jane',
+  url: 'https://www.biography.com/.image/t_share/MTE1ODA0OTcxNTQ2ODcxMzA5/jane-austen-9192819-1-402.jpg'
 }, {username: 'Mr Charles Dickens',
 email: 'charles@dickens.com',
 password: 'charles',
-passwordConfirmation: 'charles'}])
+passwordConfirmation: 'charles',
+url: 'https://www.biography.com/.image/t_share/MTI2NzE5OTAwMjQzNzMzMTIz/charles-dickens-600x487jpg.jpg'}])
 
 .then(users => {
   console.log(`${users.length} users created`);

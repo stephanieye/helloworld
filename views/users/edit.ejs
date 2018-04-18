@@ -1,4 +1,4 @@
-
+<% if(locals.isLoggedIn) {%>
 <div class="container">
 <h2>Edit your profile</h2>
 
@@ -8,19 +8,23 @@
 
 
   <div class="input-field col l12">
-    <input type="text" name="username" id="username_field" value='<%=user.username%>'>
+    <input type="text" name="username" id="username_field" value='<%=user.username%>' required>
     <label for="username_field">Your name</label>
   </div>
   <div class="input-field col l12">
-    <input type="email" name="email" id="email_field" value='<%=user.email%>'>
+    <input type="email" name="email" id="email_field" value='<%=user.email%>' required>
     <label for="email_field">Email</label>
   </div>
   <div class="input-field col l12">
-    <input type="password" name="password" id="password_field">
+    <input type="text" name="url" id="url_field" value='<%=user.url%>'>
+    <label for="email_field">Image URL (optional)</label>
+  </div>
+  <div class="input-field col l12">
+    <input type="password" name="password" id="password_field" required>
     <label for="password_field">Password</label>
   </div>
   <div class="input-field col l12">
-    <input type="password" name="passwordConfirmation" id="passwordcon_field">
+    <input type="password" name="passwordConfirmation" id="passwordcon_field" required >
     <label for="passwordcon_field">Enter your password again</label>
   </div>
   <div class = 'row'>
@@ -41,3 +45,4 @@
   </div>
 </div>
 </div>
+<%}%>

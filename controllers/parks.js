@@ -34,6 +34,16 @@ function parksShow(req, res) {
     });
 }
 
+function parksAccountShow(req, res) {
+  Park
+    .findById(req.params.id)
+    .populate('users reviews reviews.user')
+    .exec()
+    .then(park => {
+      res.render('parks/accountshow', {park});
+    });
+}
+
 
 
 function parksNew(req, res) {
@@ -140,6 +150,7 @@ module.exports = {
   index: parksIndex,
   account: parksAccount,
   show: parksShow,
+  accountshow: parksAccountShow,
   delete: parksDelete,
   new: parksNew,
   create: parksCreate,
