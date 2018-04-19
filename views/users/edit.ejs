@@ -31,7 +31,7 @@
     <div class = 'col s12'>
       <div class= 'col s5 left-align'>
 
-          <button class="waves-effect waves-light btn" id='curtain'>Edit your account</button>
+          <button class="waves-effect waves-light btn" id='curtain'>Edit account</button>
 
       </form>
     </div>
@@ -39,7 +39,7 @@
       <form method="POST" action="/users/<%= user._id %>">
         <input type="hidden" name="_method" value="DELETE">
         <%console.log(user._id)%>
-        <button class="waves-effect waves-light red btn">Delete your account</button>
+        <button class="waves-effect waves-light red btn">Delete account</button>
       </form>
     </div>
   </div>

@@ -41,11 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
 <title>Parklife</title>
 </head>
 <body class= 'light green lighten-4' style='font-family: Arima Madurai, cursive;'>
+  <div style='position: fixed; top: 0; width: 100%; z-index: 2'>
   <% include ./partials/_navbar %>
+</div>
   <% include ./partials/_danger %>
   <% include ./partials/_happy %>
-  <div class="container">
+  <div class="container" style='margin-top: 100px;'>
     <%- body %>
   </div>
+  <div class='brown-text center-align' style='margin-top: 100px'>
+    <p>Designed by Stephanie Ye<br>
+    London 2018</p>
+    <div>
 </body>
+
 </html>
