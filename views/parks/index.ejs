@@ -25,22 +25,47 @@
 
   	var vic = {
   		info: '<a href="https://goo.gl/maps/k4gF7XACYrL2">Victoria Park: Get Directions</a>',
-  		lat: 32.856516,
-  		long: -96.985374
+  		lat: 51.536561,
+  		long: -0.038972
   	};
 
   	var london = {
   		info: '<a href="https://goo.gl/maps/fwpH8bjVUJu">London Fields: Get Directions</a>',
-  		lat: 49.280935,
-  		long: -123.089875
+  		lat: 51.542292,
+  		long: -0.061510
+  	};
+
+  	var postman = {
+  		info: '<a href="https://goo.gl/maps/2Uq9YHsytc52">Postmans Park: Get Directions</a>',
+  		lat: 51.516767,
+  		long: -0.097715
+  	};
+  	var greenwich = {
+  		info: '<a href="https://goo.gl/maps/So9xWRcN4T92">Greenwich Park: Get Directions</a>',
+  		lat: 51.476909,
+  		long: 0.001464
+  	};
+  	var richmond = {
+  		info: '<a href="https://goo.gl/maps/HHWUstkbkjD2">Richmond Park: Get Directions</a>',
+  		lat: 51.446387,
+  		long: -0.275773
+  	};
+  	var hamp = {
+  		info: '<a href="https://goo.gl/maps/M6zXXjYVKgB2">Hampstead Heath: Get Directions</a>',
+  		lat: 51.560842,
+  		long: -0.163138
   	};
 
   	var locations = [
         [hydepark.info, hydepark.lat, hydepark.long],
+        [vic.info, vic.lat, vic.long],
         [regentspark.info, regentspark.lat, regentspark.long],
         [potters.info, potters.lat, potters.long],
-        [vic.info, vic.lat, vic.long],
-        [london.info, london.lat, london.long]
+        [london.info, london.lat, london.long],
+        [postman.info, postman.lat, postman.long],
+        [greenwich.info, greenwich.lat, greenwich.long],
+        [richmond.info, richmond.lat, richmond.long],
+        [hamp.info, hamp.lat, hamp.long],
       ];
 
   	var map = new google.maps.Map(document.getElementById('map'), {
@@ -67,9 +92,10 @@
   		})(marker, i));
   	}
   }
-
-
   </script>
+
+
+
 	<script async defer
 					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w&callback=initMap"></script>
 </div>
