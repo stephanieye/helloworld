@@ -6,31 +6,45 @@
   function initMap() {
 
   	var hydepark = {
-  		info: '<a href="https://goo.gl/maps/JRnChuXUAn72">Get Directions</a>',
+  		info: '<a href="https://goo.gl/maps/JRnChuXUAn72">Hyde Park: Get Directions</a>',
   		lat: 51.507268,
   		long: -0.165730
   	};
 
   	var regentspark = {
-  		info: '<a href="https://goo.gl/maps/tGFqnbQB9Rm">Get Directions</a>',
+  		info: '<a href="https://goo.gl/maps/tGFqnbQB9Rm">Regents Park: Get Directions</a>',
   		lat: 51.531270,
   		long: -0.156969
   	};
 
   	var potters = {
-  		info: '<a href="https://goo.gl/maps/Q5ajybAEs9k">Get Directions</a>',
+  		info: '<a href="https://goo.gl/maps/Q5ajybAEs9k">Potters Fields Park: Get Directions</a>',
   		lat: 51.504214,
   		long: -0.078676
   	};
 
+  	var vic = {
+  		info: '<a href="https://goo.gl/maps/k4gF7XACYrL2">Victoria Park: Get Directions</a>',
+  		lat: 32.856516,
+  		long: -96.985374
+  	};
+
+  	var london = {
+  		info: '<a href="https://goo.gl/maps/fwpH8bjVUJu">London Fields: Get Directions</a>',
+  		lat: 49.280935,
+  		long: -123.089875
+  	};
+
   	var locations = [
-        [hydepark.info, hydepark.lat, hydepark.long, 0],
-        [regentspark.info, regentspark.lat, regentspark.long, 1],
-        [potters.info, potters.lat, potters.long, 2],
+        [hydepark.info, hydepark.lat, hydepark.long],
+        [regentspark.info, regentspark.lat, regentspark.long],
+        [potters.info, potters.lat, potters.long],
+        [vic.info, vic.lat, vic.long],
+        [london.info, london.lat, london.long]
       ];
 
   	var map = new google.maps.Map(document.getElementById('map'), {
-  		zoom: 12,
+  		zoom: 11,
   		center: new google.maps.LatLng(51.513845, -0.098351),
   		mapTypeId: google.maps.MapTypeId.ROADMAP
   	});
@@ -55,15 +69,9 @@
   }
 
 
-
-
-
-
-
-
   </script>
 	<script async defer
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdv9-_Ed1IqDJVLXNqsRFcS_zGEe2Gr9M&callback=initMap"></script>
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w&callback=initMap"></script>
 </div>
 
 
