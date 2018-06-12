@@ -1,10 +1,67 @@
-<h3>Create new park</h3>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7WaMO-50nzRzFcT0F7P6B5RYKHnyMVt8&libraries=places">
 
-<form method="POST" action="/parks">
 
-<input placeholder="Name the park" name="parkname"></input>
-<input placeholder="Give a photo url" name="photo"></input>
+</script>
 
-<button class="waves-effect waves-light green btn">Submit</button>
-</form>
+<script>
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+const bounds = new google.maps.LatLngBounds();
+  const autocompleteInput = document.querySelector('.autocomplete');
+
+  const autocomplete = new google.maps.places.Autocomplete((autocompleteInput), { types: ['geocode'], componentRestrictions: {country: "uk"} });
+
+
+  $('.newparkform').submit(function(e) {
+    document.querySelector('#name_field').value = autocomplete.getPlace().name;
+    document.querySelector('#location_field').value= autocomplete.getPlace().geometry.location;
+    document.querySelector('#photo_field').value= autocomplete.getPlace().photos[0].getUrl({'maxWidth': 1000, 'maxHeight': 1000});
+  });
+
+});
+
+
+</script>
+
+
+<div class='solid'>
+
+<% if(messages.danger){ %>
+    <div class="col s12 l12">
+      <div class="card red lighten-3">
+        <div class="card-content red-text">
+          <span class="card-title"><%= messages.danger %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+
+  <h3>Add a park</h3>
+
+  <form
+  class="newparkform" action="/parks" method="post">
+
+    <div class="input-field col l12">
+    <input type='text' name='please enter your location' id='please_field' class='autocomplete' />
+    <label for='please_field'>please enter your location</label>
+    </div>
+<div class='hidden'>
+    <div class="input-field col l12">
+    <input type='text' name='name' id='name_field'/>
+    </div>
+
+    <div class="input-field col l12">
+    <input type='text' name='location' id='location_field'/>
+    </div>
+
+    <div class="input-field col l12">
+    <input type='text' name='photo' id='photo_field'/>
+    </div>
+</div>
+  <button class="waves-effect waves-light green btn">Submit</button>
+  </form>
+
 </div>

@@ -1,105 +1,63 @@
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7WaMO-50nzRzFcT0F7P6B5RYKHnyMVt8&libraries=places">
+
+
+</script>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+
+  const mapDiv = document.querySelector('.map');
+  console.log(mapDiv);
+
+  const map = new google.maps.Map(mapDiv, {
+    center: {lat: 51.515252, lng: -0.072344 },
+    zoom: 10,
+  });
+
+const bounds = new google.maps.LatLngBounds();
+
+//marking the locations of the parks
+
+var x = document.getElementsByClassName('googlelocation');
+var locationarray= Array.from(x);
+
+locationarray.forEach(function(y){
+  var coords = y.innerHTML.split(',');
+  const marker = new google.maps.Marker({
+    position: {lat: Number(coords[0]), lng: Number(coords[1])},
+    map: map
+  });
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<div>
+<a href= 'parks/${coords[3]}'><p>${coords[2]}</p></a>
+</div>`
+  });
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+
+  });
+})
+
+
+
+
+
+
+
+});
+
+
+</script>
+
+
+<div class='solid'>
 <h3>Parks</h3>
+
+
+<div class="map"></div>
+
 <div class= 'col s12' style='margin-bottom :40px '>
-  <div id="map" style='height: 350px;'></div>
-
-	<script>
-  function initMap() {
-
-  	var hydepark = {
-  		info: '<a href="https://goo.gl/maps/JRnChuXUAn72">Hyde Park: Get Directions</a>',
-  		lat: 51.507268,
-  		long: -0.165730
-  	};
-
-  	var regentspark = {
-  		info: '<a href="https://goo.gl/maps/tGFqnbQB9Rm">Regents Park: Get Directions</a>',
-  		lat: 51.531270,
-  		long: -0.156969
-  	};
-
-  	var potters = {
-  		info: '<a href="https://goo.gl/maps/Q5ajybAEs9k">Potters Fields Park: Get Directions</a>',
-  		lat: 51.504214,
-  		long: -0.078676
-  	};
-
-  	var vic = {
-  		info: '<a href="https://goo.gl/maps/k4gF7XACYrL2">Victoria Park: Get Directions</a>',
-  		lat: 51.536561,
-  		long: -0.038972
-  	};
-
-  	var london = {
-  		info: '<a href="https://goo.gl/maps/fwpH8bjVUJu">London Fields: Get Directions</a>',
-  		lat: 51.542292,
-  		long: -0.061510
-  	};
-
-  	var postman = {
-  		info: '<a href="https://goo.gl/maps/2Uq9YHsytc52">Postmans Park: Get Directions</a>',
-  		lat: 51.516767,
-  		long: -0.097715
-  	};
-  	var greenwich = {
-  		info: '<a href="https://goo.gl/maps/So9xWRcN4T92">Greenwich Park: Get Directions</a>',
-  		lat: 51.476909,
-  		long: 0.001464
-  	};
-  	var richmond = {
-  		info: '<a href="https://goo.gl/maps/HHWUstkbkjD2">Richmond Park: Get Directions</a>',
-  		lat: 51.446387,
-  		long: -0.275773
-  	};
-  	var hamp = {
-  		info: '<a href="https://goo.gl/maps/M6zXXjYVKgB2">Hampstead Heath: Get Directions</a>',
-  		lat: 51.560842,
-  		long: -0.163138
-  	};
-
-  	var locations = [
-        [hydepark.info, hydepark.lat, hydepark.long],
-        [vic.info, vic.lat, vic.long],
-        [regentspark.info, regentspark.lat, regentspark.long],
-        [potters.info, potters.lat, potters.long],
-        [london.info, london.lat, london.long],
-        [postman.info, postman.lat, postman.long],
-        [greenwich.info, greenwich.lat, greenwich.long],
-        [richmond.info, richmond.lat, richmond.long],
-        [hamp.info, hamp.lat, hamp.long],
-      ];
-
-  	var map = new google.maps.Map(document.getElementById('map'), {
-  		zoom: 11,
-  		center: new google.maps.LatLng(51.513845, -0.098351),
-  		mapTypeId: google.maps.MapTypeId.ROADMAP
-  	});
-
-  	var infowindow = new google.maps.InfoWindow({});
-
-  	var marker, i;
-
-  	for (i = 0; i < locations.length; i++) {
-  		marker = new google.maps.Marker({
-  			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-  			map: map
-  		});
-
-  		google.maps.event.addListener(marker, 'click', (function (marker, i) {
-  			return function () {
-  				infowindow.setContent(locations[i][0]);
-  				infowindow.open(map, marker);
-  			}
-  		})(marker, i));
-  	}
-  }
-  </script>
-
-
-
-	<script async defer
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBu3XA9wXX6D-fNiHMANhgkHnNKsF4c6w&callback=initMap"></script>
-</div>
-
 
   <div class="row">
     <div class= 'col s12'>
@@ -112,44 +70,10 @@
             <img src="<%= park.photo %>">
           </div>
           <div class= 'center-align'>
-            <h4><%= park.parkname %></h4></a>
+            <h4><%= park.name %></h4>
+            <p class='googlelocation'><%= park.location.lat %>,<%= park.location.lng %>,<%=park.name %>,<%= park._id %></p>
             </div>
-
-
-              <%var array = [];%>
-
-
-            <% park.reviews.forEach((review) => { %>
-
-              <%array.push(review.rating)%>
-              <%var ave = array.reduce((total, rate) => total + rate) / array.length;%>
-              <%review.result = ave%>
-
-            <%})%>
-
-            <%var star=park.reviews[park.reviews.length-1].result%>
-            <p class='center-align'>
-            <%if (star === 5) {%>
-              &#9733;&#9733;&#9733;&#9733;&#9733; (<%= park.reviews.length %> reviews)
-              <%} else if (star >= 4.5) {%>
-              &#9733;&#9733;&#9733;&#9733;&#189; (<%= park.reviews.length %> reviews)
-            <%} else if (star >= 4) {%>
-              &#9733;&#9733;&#9733;&#9733;&#9734; (<%= park.reviews.length %> reviews)
-              <%} else if (star >= 3.5) {%>
-              &#9733;&#9733;&#9733;&#189;&#9734; (<%= park.reviews.length %> reviews)
-            <%} else if (star >= 3) {%>
-              &#9733;&#9733;&#9733;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-              <%} else if (star >= 2.5) {%>
-              &#9733;&#9733;&#189;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-            <%} else if (star >= 2) {%>
-            &#9733;&#9733;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-            <%} else if (star >= 1.5) {%>
-            &#9733;&#189;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-            <%} else {%>
-            &#9733;&#9734;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-            <%} %>
-            </p>
-
+            </a>
 
         </div>
       </div>
@@ -162,6 +86,4 @@
 </div>
 
 
-
-
-    <h6>Don't see a London park you love? <a href='mailto:parklife@parklife.io'>Suggest it to us!</a></h6>
+  </div>

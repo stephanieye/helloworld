@@ -65,7 +65,7 @@ function updateRoute(req, res, next) {
 
       return user.save();
     })
-    .then((user) => res.redirect(`/users/${user._id}`))
+    .then(() => res.redirect('/parks/account'))
     .catch((err) => {
       if(err.name === 'ValidationError') {
         res.badRequest(`/users/${req.params.id}/edit`, err.toString());

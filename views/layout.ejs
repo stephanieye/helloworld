@@ -3,45 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var submit = document.getElementById('submit');
-    var reviewdate = document.getElementById('reviewdate');
-    submit.addEventListener('mouseover', function(){
-      var x = new Date();
-      var y = x.toUTCString();
-      reviewdate.value = y;
-    });
-  });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var curtain = document.getElementById('curtain');
-  var url_field = document.getElementById('url_field');
-  curtain.addEventListener('click', function(){
-    if (url_field.value === '') {
-      var a = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Birnbaum_am_Lerchenberg_retouched.jpg/310px-Birnbaum_am_Lerchenberg_retouched.jpg';
-      url_field.value = a;
-    }
-  });
-});
-</script>
-
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
 <title>Parklifer</title>
 </head>
-<body class= 'light green lighten-4' style='font-family: Arima Madurai, cursive;'>
+<body class= 'light green lighten-4 spread'>
   <div style='position: fixed; top: 0; width: 100%; z-index: 2'>
   <% include ./partials/_navbar %>
 </div>
@@ -52,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
 </body>
-<div style='margin-bottom: 0; margin-top: 50px;'>
+<div class='footer'>
 <% include ./partials/_footer %>
+</div>
 
 </html>

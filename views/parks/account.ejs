@@ -1,10 +1,10 @@
 
 
 <% if(locals.isLoggedIn)  {%>
-
+  <div class='solid'>
   <div class= 'col s12'>
   <div class='row'>
-  <div class = ' col s3'>
+  <div class = 'col s3'>
   <img src = '<%=locals.user.url%>' class = 'responsive-img' style='margin-top: 20px'>
   </div>
 
@@ -12,31 +12,28 @@
   <div class= 'col s9'>
   <h3>Hello, <%=locals.user.username%>!</h3>
   <h5><a href='../users/<%=user._id%>/edit'>Edit your profile</a></h5>
+  <h5><a href ="/logout" >Logout</a></h5>
   </div>
 
 
   </div>
   </div>
 
-
-  <div class='divider'></div>
-
+<div>
 
   <h6>Here are all your reviews of parks:</h6>
+  <div class='col s12 row'>
+  <% parks.forEach(park => { %>
 
+    <% park.reviews.forEach(review => { %>
 
-  <% parks.forEach((park) => { %>
-
-    <% park.reviews.forEach((review) => { %>
-
-      <% if(locals.user.username === review.reviewer){%>
-
-
-        <div class="row">
-        <div class="col s12 m6">
+      <% if(locals.user.id === review.reviewer.id){%>
+        <div class='col s6'>
         <div class="card blue lighten-5">
         <div class="card-content black-text">
-        <span class="card-title">  <a href='<%=park._id%>'><%=park.parkname%></a></span>
+        <span class="card-title">
+        <a href='<%=park._id%>'><%=park.parkname%></a>
+        </span>
         <p>Title: <%= review.title %></p>
         <p>Rating:   <%if (review.rating === 5) {%>
             &#9733;&#9733;&#9733;&#9733;&#9733;
@@ -51,7 +48,9 @@
           <%} %>
         <p>Review: <%= review.content %></p>
         <br />
-        <a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'><button class="waves-effect waves-light green btn">Edit review</button></a>
+        <a href= '/parks/<%=park._id%>/reviews/<%=review._id%>/reviewedit'>
+        <button class="waves-effect waves-light green btn">Edit review</button>
+        </a>
 
         </div>
         </div>
@@ -60,5 +59,13 @@
         <% } %>
         <% }) %>
         <%   }) %>
+        </div>
 
-        <%} %>
+</div>
+</div>
+
+
+
+
+
+<%} %>

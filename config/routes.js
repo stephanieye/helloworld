@@ -45,8 +45,7 @@ router.route('/parks')
   .post(parks.create);
 
 router.route('/parks/account')
-  .get(parks.account)
-  .post(parks.create);
+  .get(parks.account);
 
 router.route('/parks/new')
   .get(parks.new);

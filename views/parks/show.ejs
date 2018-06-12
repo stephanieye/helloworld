@@ -1,139 +1,109 @@
-<div class="container">
-  <div class = 'col s12' style= 'margin-top: 20px'>
-    <iframe width="100%" height="300px" frameborder="0" style="border:1px solid grey" src="<%=park.googlemap%>" allowfullscreen></iframe>
-  </div>
-  <h3 class= 'col s12'><%= park.parkname %></h3>
+<div class="container solid">
+  <div class='center-align'>
+  <div class='parkphoto' style= 'background-image: url(<%= park.photo %>)'></div>
 
+  <h3 class= 'col s12'><%= park.name %></h3>
 
-  <%var array = [];%>
-
+</div>
 
   <% park.reviews.forEach((review) => { %>
 
-    <%array.push(review.rating)%>
-    <%var ave = array.reduce((total, rate) => total + rate) / array.length;%>
-    <%review.result = ave%>
+    <div class='row'>
+    <div class= 'col s12'>
 
-    <%})%>
+    <div class= 'col s12'>
+    <h5><%= review.title %></h5>
+    </div>
 
-    <%var star=park.reviews[park.reviews.length-1].result%>
-    <p>Average Parklifer rating:
-    <%if (star === 5) {%>
-      &#9733;&#9733;&#9733;&#9733;&#9733; (<%= park.reviews.length %> reviews)
-      <%} else if (star >= 4.5) {%>
-        &#9733;&#9733;&#9733;&#9733;&#189; (<%= park.reviews.length %> reviews)
-        <%} else if (star >= 4) {%>
-          &#9733;&#9733;&#9733;&#9733;&#9734; (<%= park.reviews.length %> reviews)
-          <%} else if (star >= 3.5) {%>
-            &#9733;&#9733;&#9733;&#189;&#9734; (<%= park.reviews.length %> reviews)
-            <%} else if (star >= 3) {%>
-              &#9733;&#9733;&#9733;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-              <%} else if (star >= 2.5) {%>
-                &#9733;&#9733;&#189;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-                <%} else if (star >= 2) {%>
-                  &#9733;&#9733;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
-                  <%} else if (star >= 1.5) {%>
-                    &#9733;&#189;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+    <div class= 'row'>
+
+    <div class= 'col s4 m2'>
+    <% if (review.reviewer){ %>
+      <img class='circle responsive-img' src='<%=review.reviewer.url%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
+      <%} %>
+      </div>
+
+      <div class= 'col s6 m8'>
+      <p>by <%if (review.reviewer){ %>
+        <%=review.reviewer.username%>
+        <%} %>
+        <br />
+        <%if (review.rating === 5) {%>
+          &#9733;&#9733;&#9733;&#9733;&#9733;
+          <%} else if (review.rating === 4) {%>
+            &#9733;&#9733;&#9733;&#9733;&#9734;
+            <%} else if (review.rating === 3) {%>
+              &#9733;&#9733;&#9733;&#9734;&#9734;
+              <%} else if (review.rating === 2) {%>
+                &#9733;&#9733;&#9734;&#9734;&#9734;
+                <%} else {%>
+                  &#9733;&#9734;&#9734;&#9734;&#9734;
+                  <%} %>
+                  <h6><%= review.content %></h6>
+                  </div>
+
+                  <div class= 'col s2 m2'>
+                  <br />
+                  <%if(locals.isLoggedIn && (review.reviewer.id === locals.user.id)) {%>
+                  <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
+                  <% } %>
+
+                  </div>
+                  </div>
+
+                  </div>
+
+
+                  </div>
+
+
+                  <% }) %>
+                  <br />
+
+                  <% if(locals.isLoggedIn) {%>
+
+                    <div class='card-panel blue lighten-5' id='submit' >
+                    <h4>Review <%=park.name%>!</h4>
+                    <div class=row>
+                    <form class="col s12" method="POST" action="/parks/<%= park._id %>/reviews">
+
+                    <div class="input-field col l12">
+                    <input type='text' name="title" id='title_field'></input>
+                    <label for="title_field">Title</label>
+                    </div>
+
+                    <div class="input-field col l12">
+                    <input type='number' name="rating" id='rating_field' min="1" max="5"></input>
+                    <label for="rating_field">Rating</label>
+                    </div>
+
+                    <div class="input-field col l12">
+                    <textarea type= 'text' name="content" id='review_field'  class="materialize-textarea"></textarea>
+                    <label for="review_field">Review</label>
+                    </div>
+
+                    <button class ="waves-effect waves-light green btn">Submit</button>
+                    </form>
+                    </div>
+
+                    </div>
+
+
                     <%} else {%>
-                      &#9733;&#9734;&#9734;&#9734;&#9734; (<%= park.reviews.length %> reviews)
+
+                      <h6>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</h6>
+
+
+                      <% } %>
+
+                      <% if(park.user && (park.user.id === locals.user.id)) {%>
+
+
+                        <form method='POST' action='/parks/<%=park._id %>'>
+                        <input type='hidden' name='_method' value='DELETE'>
+                        <button class="waves-effect waves-light red btn">Delete park</button>
+                        </form>
+
+
+
                       <%} %>
-                    </p>
-
-
-                    <% park.reviews.forEach((review) => { %>
-
-                      <div class='row'>
-                      <div class= 'col s12'>
-
-                      <div class= 'col s12'>
-                      <h5><%= review.title %></h5>
-                      </div>
-
-                      <div class= 'row'>
-
-                      <div class= 'col s4 m2'>
-                      <% if (review.user){ %>
-                        <img class='circle responsive-img' src='<%=review.user.url%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
-                        <%} else {%>
-                          <img class='circle responsive-img' src='<%=review.reviewerurl%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
-                          <%}%>
-                          </div>
-
-                          <div class= 'col s6 m8'>
-                          <p>by <%if (review.user){ %>
-                            <%=review.user.username%>
-                            <%} else { %>
-                              <%=review.reviewer%>
-                              <% } %> on <%=review.time%>
-                              <br />
-                              <%if (review.rating === 5) {%>
-                                &#9733;&#9733;&#9733;&#9733;&#9733;
-                                <%} else if (review.rating === 4) {%>
-                                  &#9733;&#9733;&#9733;&#9733;&#9734;
-                                  <%} else if (review.rating === 3) {%>
-                                    &#9733;&#9733;&#9733;&#9734;&#9734;
-                                    <%} else if (review.rating === 2) {%>
-                                      &#9733;&#9733;&#9734;&#9734;&#9734;
-                                      <%} else {%>
-                                        &#9733;&#9734;&#9734;&#9734;&#9734;
-                                        <%} %>
-                                        <h6><%= review.content %></h6>
-                                        </div>
-
-                                        <div class= 'col s2 m2'>
-                                        <br />
-                                        <% if((locals.isLoggedIn) && ((locals.user.id === (review.user && review.user.id))  ||  (locals.user.username === review.reviewer))) {%>
-                                          <a href='/parks/<%= park._id%>/reviews/<%= review._id %>/reviewedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
-                                          <%}%>
-                                          </div>
-                                          </div>
-
-                                          </div>
-
-
-                                          </div>
-
-
-                                          <% }) %>
-                                          <br />
-
-                                          <% if(locals.isLoggedIn) {%>
-
-                                            <div class='card-panel blue lighten-5' id='submit' >
-                                            <h4>Review <%=park.parkname%>!</h4>
-                                            <div class=row>
-                                            <form class="col s12" method="POST" action="/parks/<%= park._id %>/reviews">
-
-                                            <div class="input-field col l12">
-                                            <input type='text' name="title" id='title_field'></input>
-                                            <label for="title_field">Title</label>
-                                            </div>
-
-                                            <div class="input-field col l12">
-                                            <input type='number' name="rating" id='rating_field' min="1" max="5"></input>
-                                            <label for="rating_field">Rating</label>
-                                            </div>
-
-                                            <div class="input-field col l12">
-                                            <textarea type= 'text' name="content" id='review_field'  class="materialize-textarea"></textarea>
-                                            <label for="review_field">Review</label>
-                                            </div>
-
-
-                                            <div style= 'display: none'>
-                                            <input placeholder="<%=locals.user.username%>" name="reviewer" value="<%=locals.user.username%>" ></input>
-                                            <input placeholder="" name="userid" value="<%=locals.user.id%>" ></input>
-                                            <input type= 'text' name="time" id='reviewdate' value=''></input>
-                                            <input name="reviewerurl" id='' value='<%=locals.user.url%>'></input>
-                                            </div>
-
-                                            <button class ="waves-effect waves-light green btn">Submit</button>
-                                            </form>
-                                            </div>
-
-                                            </div>
-
-                                            <%} else {%>
-
-                                              <h6>Want to submit a review of this park? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</h6>
-                                              <% } %>
