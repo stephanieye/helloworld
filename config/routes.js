@@ -42,32 +42,32 @@ router.route('/users/:id/edit')
 
 router.route('/parks')
   .get(parks.index)
-  .post(parks.create);
+  .post(secureRoute, parks.create);
 
 router.route('/parks/account')
-  .get(parks.account);
+  .get(secureRoute, parks.account);
 
 router.route('/parks/new')
-  .get(parks.new);
+  .get(secureRoute, parks.new);
 
 router.route('/parks/:id')
-  .get(parks.show)
-  .delete(parks.delete)
-  .put(parks.update);
+  .get(secureRoute, parks.show)
+  .delete(secureRoute, parks.delete)
+  .put(secureRoute, parks.update);
 
 router.route('/parks/:id/edit')
-  .get(parks.edit);
+  .get(secureRoute, parks.edit);
 
 router.route('/parks/:id/reviews')
-  .post(parks.reviewCreate);
+  .post(secureRoute, parks.reviewCreate);
 
 router.route('/parks/:id/reviews/:reviewId')
-  .delete(parks.reviewDelete)
-  .put(parks.reviewUpdate);
+  .delete(secureRoute, parks.reviewDelete)
+  .put(secureRoute, parks.reviewUpdate);
 
 
 router.route('/parks/:id/reviews/:reviewId/reviewedit')
-  .get(parks.reviewEdit);
+  .get(secureRoute, parks.reviewEdit);
 
 
 //404 not found
