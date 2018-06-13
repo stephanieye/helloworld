@@ -16,7 +16,10 @@ const bounds = new google.maps.LatLngBounds();
 
   $('.newparkform').submit(function(e) {
     document.querySelector('#name_field').value = autocomplete.getPlace().name;
-    document.querySelector('#location_field').value= autocomplete.getPlace().geometry.location;
+    var locale = autocomplete.getPlace().geometry.location.toString();
+    console.log(locale);
+    var locale1 = locale.slice(1, locale.length-1);
+    document.querySelector('#location_field').value= locale1;
     document.querySelector('#photo_field').value= autocomplete.getPlace().photos[0].getUrl({'maxWidth': 1000, 'maxHeight': 1000});
   });
 
@@ -45,8 +48,7 @@ const bounds = new google.maps.LatLngBounds();
   class="newparkform" action="/parks" method="post">
 
     <div class="input-field col l12">
-    <input type='text' name='please enter your location' id='please_field' class='autocomplete' />
-    <label for='please_field'>please enter your location</label>
+    <input type='text' class='autocomplete' />
     </div>
 <div class='hidden'>
     <div class="input-field col l12">

@@ -38,10 +38,7 @@ User
       .create([{
         photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/memorials,-fountains-and-statues/diana-memorial-fountain/_gallery/Diana-Memorial-Fountain-from-across-the-Serpentine.jpg/w_1200.jpg',
         name: 'Hyde Park',
-        location: {
-          lat: 51.507268,
-          lng: -0.165730
-        },
+        location: '51.507268, -0.165730',
         reviews: [{
           time: 'Mon, Jan 07 2018 21:09:09 GMT',
           title: 'A beautiful park',
@@ -64,10 +61,7 @@ User
       },{
         photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
         name: 'London Fields',
-        location: {
-          lat: 51.542292,
-          lng: -0.061510
-        },
+        location: '51.542292, -0.061510',
         reviews: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
           title: 'Good for BBQs',
@@ -90,10 +84,7 @@ User
       },{
         photo: 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/620/cached.offlinehbpl.hbpl.co.uk/news/WOH/AerialViewofModelBoatingPondCREDCoL-20170530042222415.jpg',
         name: 'Hampstead Heath',
-        location: {
-          lat: 51.560842,
-          lng: -0.163138
-        },
+        location: '51.560842, -0.163138',
         reviews: [{
           time: 'Mon, Jan 07 2018 21:09:09 GMT',
           title: 'Skinny-dipping...',
@@ -116,10 +107,7 @@ User
       },{
         photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
         name: 'Potters Fields',
-        location: {
-          lat: 51.560842,
-          lng: -0.163138
-        },
+        location: '51.560842, -0.163138',
         reviews: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
           title: 'Great view of Tower Bridge',
@@ -142,10 +130,7 @@ User
       },{
         photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
         name: 'Victoria Park',
-        location: {
-          lat: 51.536561,
-          lng: -0.038972
-        },
+        location: '51.536561, -0.038972',
         reviews: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
           title: 'Boating lake!',
@@ -168,10 +153,7 @@ User
       },{
         photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
         name: 'Postman\'s Park',
-        location: {
-          lat: 51.516767,
-          lng: -0.097715
-        },
+        location: '51.516767, -0.097715',
         reviews: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
           title: 'Lovely lunch spot',
@@ -194,10 +176,7 @@ User
       },{
         photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
         name: 'Greenwich Park',
-        location: {
-          lat: 51.476909,
-          lng: 0.001464
-        },
+        location: '51.476909, 0.001464',
         reviews: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
           title: 'Greenest part of London',

@@ -28,10 +28,7 @@ reviewSchema.set('toJSON', {
 const parkSchema = new mongoose.Schema({
   photo: String,
   name: {type: String, required: true, unique: true},
-  location: {
-    lat: {type: Number, required: true},
-    lng: {type: Number, required: true}
-  },
+  location: String,
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   reviews: [ reviewSchema ]
 });

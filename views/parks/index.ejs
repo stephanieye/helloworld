@@ -23,7 +23,7 @@ var x = document.getElementsByClassName('googlelocation');
 var locationarray= Array.from(x);
 
 locationarray.forEach(function(y){
-  var coords = y.innerHTML.split(',');
+  var coords = y.innerHTML.split(', ');
   const marker = new google.maps.Marker({
     position: {lat: Number(coords[0]), lng: Number(coords[1])},
     map: map
@@ -71,7 +71,9 @@ locationarray.forEach(function(y){
           </div>
           <div class= 'center-align'>
             <h4><%= park.name %></h4>
-            <p class='googlelocation'><%= park.location.lat %>,<%= park.location.lng %>,<%=park.name %>,<%= park._id %></p>
+            <div class='hidden'>
+            <p class='googlelocation'><%= park.location %>, <%=park.name %>, <%= park._id %></p>
+            </div>
             </div>
             </a>
 
