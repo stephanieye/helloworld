@@ -1,0 +1,47 @@
+
+<% if(locals.isLoggedIn) {%>
+  <div class='card-panel blue lighten-5' id='submit'>
+
+<h3>Edit the entry about <%=park.parkname%></h3>
+<div class=row>
+<form class="col s12" method='POST' action='/parks/<%=park._id %>'>
+ <input type='hidden' name='_method' value='PUT'>
+ <div class="input-field col l12">
+<input type='text' name="name" value='<%=park.name%>' id='name_field'></input>
+ <label for="name_field">Name</label>
+ </div>
+  <div class="input-field col l12">
+ <input type='text' name="photo" value='<%=park.photo%>' id='photo_field'></input>
+   <label for="photo_field">Photo URL</label>
+ </div>
+
+
+
+<div class = 'row'>
+<br />
+<div class = 'col s12'>
+<div class = 'col s6 left-align'>
+
+
+<button class= "waves-effect waves-light green btn">Update Park</button>
+</form>
+
+
+</div>
+
+<div class = 'col s6 right-align'>
+
+<% if(park.user && (park.user.id === locals.user.id)) {%>
+
+  <form method='POST' action='/parks/<%=park._id %>'>
+  <input type='hidden' name='_method' value='DELETE'>
+  <button class="waves-effect waves-light red btn">Delete park</button>
+  </form>
+
+<%} %>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%} %>

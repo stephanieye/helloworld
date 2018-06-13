@@ -36,7 +36,8 @@ h1 {
   bottom: 0; }
 
 .map {
-  height: 50vh; }
+  height: 50vh;
+  margin-bottom: 20px; }
 
 .parkphoto {
   margin: 0 auto;

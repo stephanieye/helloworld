@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const map = new google.maps.Map(mapDiv, {
     center: {lat: 51.515252, lng: -0.072344 },
-    zoom: 10,
+    zoom: 11,
   });
 
 const bounds = new google.maps.LatLngBounds();
@@ -35,7 +35,6 @@ locationarray.forEach(function(y){
   });
   marker.addListener('click', () => {
     infoWindow.open(map, marker);
-
   });
 })
 
@@ -71,6 +70,19 @@ locationarray.forEach(function(y){
           </div>
           <div class= 'center-align'>
             <h4><%= park.name %></h4>
+            <p>  <%if (park.avgRating === 5) {%>
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+                <%} else if (park.avgRating > 3.6) {%>
+                  &#9733;&#9733;&#9733;&#9733;&#9734;
+                  <%} else if (park.avgRating > 2.6) {%>
+                    &#9733;&#9733;&#9733;&#9734;&#9734;
+                    <%} else if (park.avgRating > 1.6) {%>
+                      &#9733;&#9733;&#9734;&#9734;&#9734;
+                      <%} else if (park.avgRating > 0.6) {%>
+                        &#9733;&#9734;&#9734;&#9734;&#9734;
+                        <%} else {%>
+                        No ratings yet
+                        <%} %> </p>
             <div class='hidden'>
             <p class='googlelocation'><%= park.location %>, <%=park.name %>, <%= park._id %></p>
             </div>
