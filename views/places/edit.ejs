@@ -28,8 +28,14 @@
  </div>
 
  <div class="input-field col l12">
- <input type='number' name="rating" id='rating_field' min="1" max="5" value='<%=place.rating%>'></input>
- <label for="rating_field">rating</label>
+   <select class='browser-default' type= 'number' name="rating">
+     <option value="" disabled selected>Choose a rating</option>
+     <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+     <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
+     <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
+     <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
+     <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
+   </select>
  </div>
 
  <div class="input-field col l12">

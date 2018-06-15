@@ -29,7 +29,7 @@ const placeSchema = new mongoose.Schema({
   location: String,
   datestart: Date,
   dateend: Date,
-  rating: {type: Number, min: 1, max: 5, default: 3},
+  rating: Number,
   notes: String,
   user: {type: mongoose.Schema.ObjectId, ref: 'User'},
   comments: [ commentSchema ]

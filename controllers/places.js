@@ -7,7 +7,8 @@ function placesIndex(req, res) {
     .exec()
     .then(places => {
       res.render('places/index', {places});
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 function placesAccount(req, res) {
@@ -17,7 +18,8 @@ function placesAccount(req, res) {
     .exec()
     .then(places => {
       res.render('places/account', {places});
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 
@@ -28,7 +30,8 @@ function placesShow(req, res) {
     .exec()
     .then(place => {
       res.render('places/show', {place});
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 
@@ -53,7 +56,8 @@ function placesEdit(req, res) {
     .findById(req.params.id)
     .populate('user comments comments.commenter')
     .exec()
-    .then(place => res.render('places/edit', {place}));
+    .then(place => res.render('places/edit', {place}))
+    .catch(err => console.log(err));
 }
 
 function placesUpdate(req, res) {
@@ -64,7 +68,8 @@ function placesUpdate(req, res) {
       place = Object.assign(place, req.body);
       return place.save();
     })
-    .then(place => res.redirect(`/places/${place._id}`));
+    .then(place => res.redirect(`/places/${place._id}`))
+    .catch(err => console.log(err));
 }
 
 function placesDelete(req, res) {
@@ -72,7 +77,8 @@ function placesDelete(req, res) {
     .findById(req.params.id)
     .exec()
     .then(place => place.remove())
-    .then(() => res.redirect('/places'));
+    .then(() => res.redirect('/places'))
+    .catch(err => console.log(err));
 }
 
 
@@ -87,7 +93,6 @@ function commentCreateRoute(req, res) {
       place.comments.push(req.body);
       console.log(req.body);
       return place.save();
-
     })
     .then(place => {
       res.redirect(`/places/${place._id}`);
@@ -104,7 +109,8 @@ function commentDeleteRoute(req, res) {
       comment.remove();
       return place.save();
     })
-    .then(place => res.redirect(`/places/${place._id}`));
+    .then(place => res.redirect(`/places/${place._id}`))
+    .catch(err => console.log(err));
 }
 
 
@@ -116,7 +122,8 @@ function commentEditRoute(req, res) {
     .then(place => {
       const comment = place.comments.id(req.params.commentId);
       res.render('places/commentedit', { place, comment });
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 
@@ -130,7 +137,8 @@ function commentUpdateRoute(req, res) {
       comment.save();
       return place.save();
     })
-    .then(place => res.redirect(`/places/${place._id}`));
+    .then(place => res.redirect(`/places/${place._id}`))
+    .catch(err => console.log(err));
 }
 
 

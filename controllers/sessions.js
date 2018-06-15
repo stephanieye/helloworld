@@ -14,7 +14,8 @@ function createRoute(req, res) {
       }
       req.session.userId = user.id;
       res.redirect(`/users/${user.id}`);
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 function deleteRoute(req, res) {

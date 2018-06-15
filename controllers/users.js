@@ -11,7 +11,6 @@ function createRoute(req, res){
     .then(() => {
       req.flash('happy', 'Thanks for registering with placelifer! Now, please log in.');
       res.redirect('/login');
-
     })
     .catch((err) => {
       if(err.name === 'ValidationError') {
@@ -28,18 +27,18 @@ function createRoute(req, res){
     });
 }
 
-function indexRoute(req, res, next) {
+function indexRoute(req, res) {
   User
     .find()
     .then(users => {
       res.render('users/index', {users});
     })
-    .catch(next);
+    .catch(err => console.log(err));
 }
 
 
 
-function showRoute(req, res, next) {
+function showRoute(req, res) {
   User
     .findById(req.params.id)
     .exec()
@@ -53,10 +52,10 @@ function showRoute(req, res, next) {
           res.render('users/show', { user, places });
         });
     })
-    .catch(next);
+    .catch(err => console.log(err));
 }
 
-function editRoute(req, res, next) {
+function editRoute(req, res) {
   User
     .findById(req.params.id)
     .exec()
@@ -64,7 +63,7 @@ function editRoute(req, res, next) {
       if(!user) return res.notFound();
       return res.render('users/edit', { user });
     })
-    .catch(next);
+    .catch(err => console.log(err));
 }
 
 function updateRoute(req, res, next) {
@@ -96,7 +95,8 @@ function deleteRoute(req, res) {
     .findById(req.params.id)
     .exec()
     .then(user => user.remove())
-    .then(() => res.redirect('/'));
+    .then(() => res.redirect('/'))
+    .catch(err => console.log(err));
 }
 
 
