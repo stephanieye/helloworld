@@ -5,11 +5,11 @@ const { databaseURI } = require('../config/environment');
 mongoose.connect(databaseURI);
 
 
-const Park = require('../models/park');
+const place = require('../models/place');
 const User = require('../models/user');
 
 
-Park.collection.drop();
+place.collection.drop();
 User.collection.drop();
 
 
@@ -34,167 +34,60 @@ User
 
   .then(users => {
     console.log(`${users.length} users created`);
-    return Park
+    return place
       .create([{
-        photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/memorials,-fountains-and-statues/diana-memorial-fountain/_gallery/Diana-Memorial-Fountain-from-across-the-Serpentine.jpg/w_1200.jpg',
-        name: 'Hyde Park',
-        location: '51.507268, -0.165730',
-        reviews: [{
+        photo: 'https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/paris/eiffel-tower-paris-p.jpg',
+        name: 'Paris',
+        location: '48.856614, 2.352222',
+        datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        rating: 4,
+        notes: "Paris, je t'aime! <3 <3 <3",
+        user: users[0],
+        comments: [{
           time: 'Mon, Jan 07 2018 21:09:09 GMT',
-          title: 'A beautiful park',
-          content: 'Love the swans',
-          rating: 4,
-          reviewer: users[0]
+          content: 'It was the best of times, it was the worst of times...',
+          commenter: users[1]
         }, {
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the lake!',
-          rating: 4,
-          reviewer: users[1]
-        }, {
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
           content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
+          commenter: users[2]
         }]
       },{
-        photo: 'https://www.hackneytennis.co.uk/wordpress/wp-content/uploads/2015/11/london_fields_1.jpg',
-        name: 'London Fields',
-        location: '51.542292, -0.061510',
-        reviews: [{
+        photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/9a/e3/1d/freedom-tower.jpg',
+        name: 'New York City',
+        location: '40.712775, -74.005973',
+        datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        rating: 4,
+        notes: 'They love me there.',
+        user: users[1],
+        comments: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for BBQs',
-          content: 'Great place to spend a sunny afternoon drinking beer with your friends',
-          rating: 4,
-          reviewer: users[0]
+          content: 'Old York is good enough for me!',
+          commenter: users[0]
         }, {
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the cycle path!',
-          rating: 3,
-          reviewer: users[1]
-        },{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
+          content: 'Wuthering wuthering wuthering heights!',
+          commenter: users[2]
         }]
       },{
-        photo: 'https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/620/cached.offlinehbpl.hbpl.co.uk/news/WOH/AerialViewofModelBoatingPondCREDCoL-20170530042222415.jpg',
-        name: 'Hampstead Heath',
-        location: '51.560842, -0.163138',
-        reviews: [{
-          time: 'Mon, Jan 07 2018 21:09:09 GMT',
-          title: 'Skinny-dipping...',
-          content: 'The colder the better!',
-          rating: 4,
-          reviewer: users[0]
-        }, {
+        photo: 'https://cdn.britannica.com/700x450/17/83817-004-C5DB59F8.jpg',
+        name: 'Mount Everest',
+        location: '27.988121, 86.924975',
+        datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',
+        rating: 4,
+        notes: 'Wuthering wuthering wuthering heights!',
+        user: users[2],
+        comments: [{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the baths!',
-          rating: 1,
-          reviewer: users[1]
+          content: 'Looks cold!',
+          commenter: users[0]
         },{
           time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
-        }]
-      },{
-        photo: 'http://cdn.ltstatic.com/2007/May/XT897956_942long.jpg',
-        name: 'Potters Fields',
-        location: '51.560842, -0.163138',
-        reviews: [{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Great view of Tower Bridge',
-          content: 'The nearby Bridge Theatre is great too!',
-          rating: 4,
-          reviewer: users[0]
-        }, {
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the river!',
-          rating: 5,
-          reviewer: users[1]
-        },{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
-        }]
-      },{
-        photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Victoria_Park_bandstand.JPG',
-        name: 'Victoria Park',
-        location: '51.536561, -0.038972',
-        reviews: [{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Boating lake!',
-          content: 'Definitely rent a boat and go for a row!',
-          rating: 4,
-          reviewer: users[0]
-        }, {
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the lake!',
-          rating: 2,
-          reviewer: users[1]
-        },{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
-        }]
-      },{
-        photo: 'http://cdn.ltstatic.com/2006/August/AU501314_942long.jpg',
-        name: 'Postman\'s Park',
-        location: '51.516767, -0.097715',
-        reviews: [{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Lovely lunch spot',
-          content: 'A quiet oasis in the city',
-          rating: 4,
-          reviewer: users[0]
-        }, {
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the road!',
-          rating: 2,
-          reviewer: users[1]
-        },{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
-        }]
-      },{
-        photo: 'https://www.royalparks.org.uk/_media/images/greenwich-park/cover-photos/Greenwich-Park-cover-photo.jpg/w_768.jpg',
-        name: 'Greenwich Park',
-        location: '51.476909, 0.001464',
-        reviews: [{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Greenest part of London',
-          content: 'Definitely visit the observatory!',
-          rating: 4,
-          reviewer: users[0]
-        }, {
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Good for dog-walking',
-          content: 'Just make sure they don\'t run into the observatory!',
-          rating: 1,
-          reviewer: users[1]
-        },{
-          time: 'Sat, Dec 25 2017 21:09:09 GMT',
-          title: 'Wuthering',
-          content: 'Wuthering wuthering heights!',
-          rating: 4,
-          reviewer: users[2]
+          content: 'Lack of readers there.',
+          commenter: users[1]
         }]
       }]);
   })

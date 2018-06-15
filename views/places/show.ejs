@@ -1,0 +1,89 @@
+
+<div class="container solid">
+  <div class='center-align'>
+    <div class='placephoto' style= 'background-image: url(<%= place.photo %>)'></div>
+
+    <h3 class= 'col s12'><%= place.name %></h3>
+    <h5>Visited by <%=place.user.username%></h5>
+    <p><%=place.datestart.toDateString()%> to <%=place.dateend.toDateString()%></p>
+    <%if (place.rating === 5) {%>
+      &#9733;&#9733;&#9733;&#9733;&#9733;
+      <%} else if (place.rating === 4) {%>
+        &#9733;&#9733;&#9733;&#9733;&#9734;
+        <%} else if (place.rating === 3) {%>
+          &#9733;&#9733;&#9733;&#9734;&#9734;
+          <%} else if (place.rating === 2) {%>
+            &#9733;&#9733;&#9734;&#9734;&#9734;
+            <%} else {%>
+              &#9733;&#9734;&#9734;&#9734;&#9734;
+              <%} %>
+              <p><%=place.notes%></p>
+
+            </div>
+
+            <% place.comments.forEach((comment) => { %>
+
+              <div class='col s12 row'>
+
+
+              <div class= 'col s12'>
+              <h5><%= comment.content %></h5>
+              </div>
+
+              <div class= 'row'>
+              <div class= 'col s4 m2'>
+              <img class='circle responsive-img' src='<%=comment.commenter.url%>' style= 'margin-top: 20px; object-fit: cover; width:70px; height:70px;'>
+              </div>
+
+              <div class= 'col s6 m8' style='margin-top:20px'>
+              <%=comment.commenter.username%>
+              </div>
+
+
+              <div class= 'col s2 m2'>
+              <br />
+              <%if(locals.isLoggedIn && (comment.commenter.id === locals.user.id)) {%>
+                <a href='/places/<%= place._id%>/comments/<%= comment._id %>/commentedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
+                <% } %>
+                </div>
+
+                </div>
+
+                </div>
+
+
+                <% }) %>
+                <br />
+
+                <% if(locals.isLoggedIn) {%>
+
+                  <div class='card-panel blue lighten-5' id='submit' >
+                  <h4>leave a comment</h4>
+                  <div class=row>
+                  <form class="col s12" method="POST" action="/places/<%= place._id %>/comments">
+
+
+                  <div class="input-field col l12">
+                  <textarea type= 'text' name="content" id='comment_field'  class="materialize-textarea"></textarea>
+                  <label for="comment_field">comment</label>
+                  </div>
+
+                  <button class ="waves-effect waves-light green btn">Submit</button>
+                  </form>
+                  </div>
+
+                  </div>
+
+
+                  <%} else {%>
+
+                    <h6>Want to submit a comment of this place? Either <a href ="/login">log in</a> or <a href ="/createaccount">create an account</a>.</h6>
+
+
+                    <% } %>
+
+                    <% if(place.user && (place.user.id === locals.user.id)) {%>
+
+                      <a href='/places/<%=place.id%>/edit' ><button class ="waves-effect waves-light green btn">Edit place</button></a>
+
+                      <%}%>

@@ -11,10 +11,10 @@ window.addEventListener('DOMContentLoaded', () => {
 const bounds = new google.maps.LatLngBounds();
   const autocompleteInput = document.querySelector('.autocomplete');
 
-  const autocomplete = new google.maps.places.Autocomplete((autocompleteInput), { types: ['geocode'], componentRestrictions: {country: "uk"} });
+  const autocomplete = new google.maps.places.Autocomplete((autocompleteInput), { types: ['geocode'] });
 
 
-  $('.newparkform').submit(function(e) {
+  $('.newplaceform').submit(function(e) {
     document.querySelector('#name_field').value = autocomplete.getPlace().name;
     var locale = autocomplete.getPlace().geometry.location.toString();
     console.log(locale);
@@ -42,13 +42,33 @@ const bounds = new google.maps.LatLngBounds();
   <% } %>
 
 
-  <h3>Add a park</h3>
+  <h3>Add a place</h3>
 
   <form
-  class="newparkform" action="/parks" method="post">
+  class="newplaceform" action="/places" method="post">
 
     <div class="input-field col l12">
     <input type='text' class='autocomplete' />
+    </div>
+
+    <div class="input-field col l12">
+    <input type='date' name='datestart' id='datestart_field' />
+    <label for="datestart_field">Start date of visit</label>
+    </div>
+
+    <div class="input-field col l12">
+    <input type='date' name='dateend' id='dateend_field' />
+    <label for="dateend_field">End date of visit</label>
+    </div>
+
+    <div class="input-field col l12">
+    <input type='number' name="rating" id='rating_field' min="1" max="5"></input>
+    <label for="rating_field">rating</label>
+    </div>
+
+    <div class="input-field col l12">
+    <input type='text' name='notes' id="notes_field" />
+    <label for="notes_field">Notes</label>
     </div>
 <div class='hidden'>
     <div class="input-field col l12">

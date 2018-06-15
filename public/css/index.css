@@ -15,7 +15,7 @@ h1 {
   font-family: Cabin Sketch, cursive; }
 
 .spread {
-  background-image: url(/images/parklifer.jpg);
+  background-image: url(/images/helloworld.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -36,10 +36,10 @@ h1 {
   bottom: 0; }
 
 .map {
-  height: 50vh;
+  height: 70vh;
   margin-bottom: 20px; }
 
-.parkphoto {
+.placephoto {
   margin: 0 auto;
   width: 400px;
   height: 300px;

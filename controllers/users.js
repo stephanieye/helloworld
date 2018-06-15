@@ -8,7 +8,7 @@ function createRoute(req, res){
   User
     .create(req.body)
     .then(() => {
-      req.flash('happy', 'Thanks for registering with Parklifer! Now, please log in.');
+      req.flash('happy', 'Thanks for registering with placelifer! Now, please log in.');
       res.redirect('/login');
 
     })
@@ -65,7 +65,7 @@ function updateRoute(req, res, next) {
 
       return user.save();
     })
-    .then(() => res.redirect('/parks/account'))
+    .then(() => res.redirect('/places/account'))
     .catch((err) => {
       if(err.name === 'ValidationError') {
         res.badRequest(`/users/${req.params.id}/edit`, err.toString());

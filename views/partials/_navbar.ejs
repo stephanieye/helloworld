@@ -4,21 +4,21 @@
 
 
     <ul class='left'>
-    <li><a href="/parks" class='brown-text brand-logo hide-on-med-and-down'><i class="material-icons">local_florist</i><span class='brand'>Parklifer</span></a></li>
+    <li><a href="/places" class='brown-text brand-logo hide-on-med-and-down'><i class="material-icons">flight</i><span class='brand'>Hello World!</span></a></li>
     </ul>
     <ul class='left'>
-      <li><a href="/parks" class='brown-text hide-on-med-and-up'><i class="material-icons">local_florist</i></a></li>
+      <li><a href="/places" class='brown-text hide-on-med-and-up'><i class="material-icons">flight</i></a></li>
     </ul>
 
 
     <ul class='right' style = 'margin-top: 13px'>
-        <li><a href="/parks" class='brown-text'><h6>All parks</h6></a></li>
       <% if (locals.isLoggedIn) { %>
-        <li><a href ="/parks/new" class='brown-text' ><h6>Add a park</h6></a></li>
-        <li><a href ='/parks/account' class='brown-text' ><h6><em><%= locals.user.username %></em></h6></a></li>
+        <li><a href="/places" class='brown-text'><h6>your map</h6></a></li>
+        <li><a href ="/places/new" class='brown-text' ><h6>add a place</h6></a></li>
+        <li><a href ='/places/account' class='brown-text' ><h6><em><%= locals.user.username %></em></h6></a></li>
         <%  } else { %>
-          <li><a href ="/createaccount" class='brown-text'><h6>Create an account</h6></a></li>
-          <li><a href ="/login" class='brown-text'><h6>Log in</h6></a></li>
+          <li><a href ="/createaccount" class='brown-text'><h6>create an account</h6></a></li>
+          <li><a href ="/login" class='brown-text'><h6>log in</h6></a></li>
           <% } %>
         </ul>
       </div>

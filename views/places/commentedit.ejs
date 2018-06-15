@@ -1,0 +1,39 @@
+
+<% if(locals.isLoggedIn) {%>
+  <div class='card-panel blue lighten-5' id='submit'>
+
+<h3>Edit your comment on <%=place.user.username%>&#8217;s visit to <%=place.name%></h3>
+<div class=row>
+<form class="col s12" method='POST' action='/places/<%=place._id %>/comments/<%=comment._id %>'>
+ <input type='hidden' name='_method' value='PUT'>
+
+  <div class="input-field col l12">
+<textarea type='text' name="content" class="materialize-textarea" id='comment_field' required><%=comment.content%></textarea>
+   <label for="comment_field">comment</label>
+   </div>
+
+
+<div class = 'row'>
+<br />
+<div class = 'col s12'>
+<div class = 'col s6 left-align'>
+
+
+<button class= "waves-effect waves-light green btn">Submit comment</button>
+</form>
+
+
+</div>
+
+<div class = 'col s6 right-align'>
+
+<form method='POST' action='/places/<%=place._id %>/comments/<%=comment._id%>'>
+<input type='hidden' name='_method' value='DELETE'>
+<button class="waves-effect waves-light red btn">Delete comment</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%} %>

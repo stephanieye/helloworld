@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const parks = require('../controllers/parks');
+const places = require('../controllers/places');
 const users = require('../controllers/users');
 const sessions = require('../controllers/sessions');
 
@@ -38,36 +38,36 @@ router.route('/users/:id/edit')
   .get(secureRoute, users.edit);
 
 
-//parks
+//places
 
-router.route('/parks')
-  .get(parks.index)
-  .post(secureRoute, parks.create);
+router.route('/places')
+  .get(secureRoute, places.index)
+  .post(secureRoute, places.create);
 
-router.route('/parks/account')
-  .get(secureRoute, parks.account);
+router.route('/places/account')
+  .get(secureRoute, places.account);
 
-router.route('/parks/new')
-  .get(secureRoute, parks.new);
+router.route('/places/new')
+  .get(secureRoute, places.new);
 
-router.route('/parks/:id')
-  .get(secureRoute, parks.show)
-  .delete(secureRoute, parks.delete)
-  .put(secureRoute, parks.update);
+router.route('/places/:id')
+  .get(secureRoute, places.show)
+  .delete(secureRoute, places.delete)
+  .put(secureRoute, places.update);
 
-router.route('/parks/:id/edit')
-  .get(secureRoute, parks.edit);
+router.route('/places/:id/edit')
+  .get(secureRoute, places.edit);
 
-router.route('/parks/:id/reviews')
-  .post(secureRoute, parks.reviewCreate);
+router.route('/places/:id/comments')
+  .post(secureRoute, places.commentCreate);
 
-router.route('/parks/:id/reviews/:reviewId')
-  .delete(secureRoute, parks.reviewDelete)
-  .put(secureRoute, parks.reviewUpdate);
+router.route('/places/:id/comments/:commentId')
+  .delete(secureRoute, places.commentDelete)
+  .put(secureRoute, places.commentUpdate);
 
 
-router.route('/parks/:id/reviews/:reviewId/reviewedit')
-  .get(secureRoute, parks.reviewEdit);
+router.route('/places/:id/comments/:commentId/commentedit')
+  .get(secureRoute, places.commentEdit);
 
 
 //404 not found

@@ -13,7 +13,7 @@ function createRoute(req, res) {
         res.status(401).render('sessions/index', {message: 'Sorry, either your email or password is wrong'});
       }
       req.session.userId = user.id;
-      res.redirect('/parks');
+      res.redirect('/places');
     });
 }
 
