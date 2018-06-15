@@ -14,7 +14,9 @@
       <%} else {%>
         <h5>Visited by <a href='/users/<%=place.user.id%>'><%=place.user.username%></a></h5>
         <%}%>
+        <%if (place.dateStart || place.dateend) {%>
         <p><%=place.datestart.toDateString()%> to <%=place.dateend.toDateString()%></p>
+        <%}%>
         <%if (place.rating === 5) {%>
           &#9733;&#9733;&#9733;&#9733;&#9733;
           <%} else if (place.rating === 4) {%>

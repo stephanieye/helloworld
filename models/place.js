@@ -25,7 +25,7 @@ commentSchema.set('toJSON', {
 
 const placeSchema = new mongoose.Schema({
   photo: String,
-  name: {type: String, required: true, unique: true},
+  name: String,
   location: String,
   datestart: Date,
   dateend: Date,
