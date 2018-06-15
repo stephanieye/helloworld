@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     const infoWindow = new google.maps.InfoWindow({
       content: `<div>
-      <a href= 'places/${coords[3]}'><p>${coords[2]}</p></a>
+      <a href= '/places/${coords[3]}'><p>${coords[2]}</p></a>
       </div>`
     });
     marker.addListener('click', () => {
@@ -48,6 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
+<h4 class='center-align'>All the places our users have pinned!</h4>
   <div class="map"></div>
 
 <div class='solid'>
@@ -61,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       <% places.forEach((place) => { %>
 
-<%if (place.user.id === locals.user.id) {%>
+
 
           <div class="col s12 m4">
           <div class="card small">
@@ -92,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
                       </div>
                       </div>
 
-<%}%>
+
 
                       <%   }) %>
 

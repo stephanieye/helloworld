@@ -53,7 +53,7 @@
 
 <div class = 'col s6 right-align'>
 
-<% if(place.user && (place.user.id === locals.user.id)) {%>
+<% if(place.user && (place.user.id === locals.userr.id)) {%>
 
   <form method='POST' action='/places/<%=place._id %>'>
   <input type='hidden' name='_method' value='DELETE'>

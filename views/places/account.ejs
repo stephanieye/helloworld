@@ -5,13 +5,13 @@
   <div class= 'col s12'>
   <div class='row'>
   <div class = 'col s3'>
-  <img src = '<%=locals.user.url%>' class = 'responsive-img' style='margin-top: 20px'>
+  <img src = '<%=locals.userr.url%>' class = 'responsive-img' style='margin-top: 20px'>
   </div>
 
 
   <div class= 'col s9'>
-  <h3>Hello, <%=locals.user.username%>!</h3>
-  <h5><a href='../users/<%=user._id%>/edit'>Edit your profile</a></h5>
+  <h3>Hello, <%=locals.userr.username%>!</h3>
+  <h5><a href='../users/<%=locals.userr._id%>/edit'>Edit your profile</a></h5>
   <h5><a href ="/logout" >Logout</a></h5>
   </div>
 
@@ -21,13 +21,13 @@
 
 <div>
 
-  <h6>Here are all your comments of places:</h6>
+  <h6>Here are all your comments about places:</h6>
   <div class='col s12 row'>
   <% places.forEach(place => { %>
 
     <% place.comments.forEach(comment => { %>
 
-      <% if(locals.user.id === comment.commenter.id){%>
+      <% if(locals.userr.id === comment.commenter.id){%>
         <div class='col s6'>
         <div class="card blue lighten-5">
         <div class="card-content black-text">

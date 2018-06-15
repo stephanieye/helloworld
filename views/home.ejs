@@ -8,12 +8,18 @@
     <h5>Map your travels around the globe.</h5>
     <br />
   </div>
+  <%if (!locals.isLoggedIn) {%>
   <div class = 'col s12'>
     <% include ./sessions/index.ejs %>
   </div>
   <div class='col s12'>
-    <h6 class='pad'>Don't have a Hello World! account? <a href='/createaccount'>Sign up here</a>.</h6>
+    <h6 class='pad'>Don&#8217;t have a Hello World! account? <a href='/createaccount'>Sign up here</a>.</h6>
   </div>
+  <%} else {%>
+    <div class = 'col s12'>
+      <a href="/places"><h4 class='center-align'>Be inspired: See all the places our users have been!</h4></a>
+    </div>
+  <%}%>
 </div>
 <div class="col m1 l3">
 </div>
