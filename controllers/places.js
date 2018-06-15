@@ -40,7 +40,7 @@ function placesCreate(req, res) {
   req.body.user = req.currentUser;
   Place
     .create(req.body)
-    .then(() => res.redirect('/places'))
+    .then((place) => res.redirect(`/places/${place._id}`))
     .catch((error) => {
       if(error.name === 'ValidationError') {
         return res.badRequest('/places/new', error.toString());
