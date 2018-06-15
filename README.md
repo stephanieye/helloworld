@@ -1,15 +1,15 @@
-![Title Page](http://stephslye.github.io/images/placelifer.png)
+![Title Page](http://stephslye.github.io/images/helloworld.png)
 
 ------------------
-#placeLIFER
+#Hello World!
 ------------------
 
-* [View app on Heroku](https://placelifer.herokuapp.com/)
-* [View repository on GitHub](https://github.com/stephslye/placelifer)
+* [View app on Heroku](https://helloworldmap.herokuapp.com/)
+* [View repository on GitHub](https://github.com/stephslye/helloworld)
 
-Full-stack app, 1 week individual project
+Full-stack app, 1-week individual project
 
-A review site for London’s places. My RESTful API lets users add, rate and review places, as well as create, view, edit and delete their own profiles. I also used the Google Maps API to display the locations of all the places.
+An app that allows users to pin on a map where they've travelled (in the style of TripAdvisor's much-missed Cities I've Visited app). My RESTful API lets users add, view, edit and delete the places they've visited, leave comments on other people's entries, as well as create, view, edit and delete their own profiles. I also used the Google Maps API to get the coordinates of all the places and display them on a map.
 
 Built with: Node.js, Express.js, MongoDB, EJS, JavaScript, CSS with Materialize, HTML
 3rd-party APIs: Google Maps
