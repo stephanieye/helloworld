@@ -21,7 +21,7 @@ h1 {
   background-size: cover; }
 
 .peep {
-  margin-top: 100px; }
+  margin-top: 80px; }
 
 .solid {
   background-color: white;
@@ -30,10 +30,6 @@ h1 {
 
 .round {
   border-radius: 175px; }
-
-.footer {
-  margin-top: 150px;
-  bottom: 0; }
 
 .map {
   height: 70vh;
