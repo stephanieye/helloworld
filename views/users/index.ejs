@@ -1,28 +1,43 @@
-<div class='solid'>
-<h4>Create an account</h4>
-<form class="col l12" action="/createaccount" method="post">
-    <div class="input-field col l12">
-      <input type="text" name="username" id="username_field" required >
-      <label for="username_field">Your name</label>
+<% if(locals.isLoggedIn) {%>
+  <div class="container solid">
+  <h2>View all users</h2>
+
+  <div class='solid'>
+
+
+
+  <div class= 'col s12' style='margin-bottom :40px '>
+
+  <div class="row">
+  <div class= 'col s12'>
+
+  <% users.forEach((user) => { %>
+
+
+
+    <div class="col s12 m4">
+    <div class="card small">
+    <a href='/users/<%= user._id %>' ><div class="card-image">
+    <img src="<%= user.url %>">
     </div>
-    <div class="input-field col l12">
-      <input type="email" name="email" id="email_field" required>
-      <label for="email_field">Email</label>
+    <div class= 'center-align'>
+    <h4><%= user.username %></h4>
     </div>
-    <div class="input-field col l12">
-      <input type="text" name="url" id="url_field">
-      <label for="url_field">Image URL (optional)</label>
+    </a>
+
     </div>
-    <div class="input-field col l12">
-      <input type="password" name="password" id="password_field" required>
-      <label for="password_field">Password</label>
     </div>
-    <div class="input-field col l12">
-      <input type="password" name="passwordConfirmation" id="passwordcon_field" required>
-      <label for="passwordcon_field">Enter your password again</label>
+
+    <%   }) %>
+
     </div>
-    <div class="input-field col l12">
-      <button class="waves-effect waves-light green btn">Create account</button>
     </div>
-  </form>
-</div>
+
+
+    </div>
+
+
+
+
+    </div>
+    <%}%>

@@ -1,7 +1,8 @@
 const User = require('../models/user');
+const Place = require('../models/place');
 
 function newRoute(req, res) {
-  res.render('users/index');
+  res.render('users/register');
 }
 
 function createRoute(req, res){
@@ -15,17 +16,27 @@ function createRoute(req, res){
     .catch((err) => {
       if(err.name === 'ValidationError') {
         req.flash('danger', 'Sorry, you might have typed something incorrectly while registering. Please try again.');
-        return res.status(400).render('users/index', {message: err.toString()});
+        return res.status(400).render('users/register', {message: err.toString()});
       } else if(err.name === 'BulkWriteError') {
         req.flash('danger', 'Sorry, that username or email is taken. Please try again.');
-        return res.status(400).render('users/index', {message: err.toString()});
+        return res.status(400).render('users/register', {message: err.toString()});
       } else {
         req.flash('danger', 'Sorry, something went wrong. Please try again.');
-        return res.status(400).render('users/index', {message: err.toString()});
+        return res.status(400).render('users/register', {message: err.toString()});
       }
 
     });
 }
+
+function indexRoute(req, res, next) {
+  User
+    .find()
+    .then(users => {
+      res.render('users/index', {users});
+    })
+    .catch(next);
+}
+
 
 
 function showRoute(req, res, next) {
@@ -34,7 +45,13 @@ function showRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-      return res.render('users/show', { user });
+      return Place
+        .find()
+        .populate('user user.username comments comments.commenter')
+        .exec()
+        .then(places => {
+          res.render('users/show', { user, places });
+        });
     })
     .catch(next);
 }
@@ -86,6 +103,7 @@ function deleteRoute(req, res) {
 module.exports = {
   new: newRoute,
   create: createRoute,
+  index: indexRoute,
   show: showRoute,
   edit: editRoute,
   update: updateRoute,

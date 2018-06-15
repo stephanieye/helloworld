@@ -28,6 +28,10 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
+//Show all users
+router.route('/users')
+  .get(secureRoute, users.index);
+
 // Show user page
 router.route('/users/:id')
   .get(secureRoute, users.show)

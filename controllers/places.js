@@ -1,7 +1,7 @@
-const place = require('../models/place');
+const Place = require('../models/place');
 
 function placesIndex(req, res) {
-  place
+  Place
     .find()
     .populate('user user.username comments comments.commenter')
     .exec()
@@ -11,7 +11,7 @@ function placesIndex(req, res) {
 }
 
 function placesAccount(req, res) {
-  place
+  Place
     .find()
     .populate('user user.username comments comments.commenter')
     .exec()
@@ -22,7 +22,7 @@ function placesAccount(req, res) {
 
 
 function placesShow(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .populate('user user.username comments comments.commenter')
     .exec()
@@ -38,7 +38,7 @@ function placesNew(req, res) {
 
 function placesCreate(req, res) {
   req.body.user = req.currentUser;
-  place
+  Place
     .create(req.body)
     .then(() => res.redirect('/places'))
     .catch((error) => {
@@ -49,7 +49,7 @@ function placesCreate(req, res) {
 }
 
 function placesEdit(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .populate('user comments comments.commenter')
     .exec()
@@ -57,7 +57,7 @@ function placesEdit(req, res) {
 }
 
 function placesUpdate(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .exec()
     .then(place => {
@@ -68,7 +68,7 @@ function placesUpdate(req, res) {
 }
 
 function placesDelete(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .exec()
     .then(place => place.remove())
@@ -78,7 +78,7 @@ function placesDelete(req, res) {
 
 function commentCreateRoute(req, res) {
 
-  place
+  Place
     .findById(req.params.id)
     .populate('user user.username comments comments.commenter')
     .exec()
@@ -96,7 +96,7 @@ function commentCreateRoute(req, res) {
 }
 
 function commentDeleteRoute(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .exec()
     .then(place => {
@@ -109,7 +109,7 @@ function commentDeleteRoute(req, res) {
 
 
 function commentEditRoute(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .populate('user user.username comments comments.commenter')
     .exec()
@@ -121,7 +121,7 @@ function commentEditRoute(req, res) {
 
 
 function commentUpdateRoute(req, res) {
-  place
+  Place
     .findById(req.params.id)
     .exec()
     .then(place => {

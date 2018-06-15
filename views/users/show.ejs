@@ -1,0 +1,103 @@
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7WaMO-50nzRzFcT0F7P6B5RYKHnyMVt8&libraries=places">
+
+
+</script>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+
+  const mapDiv = document.querySelector('.map');
+  console.log(mapDiv);
+
+  const map = new google.maps.Map(mapDiv, {
+    center: {lat: 0, lng: 0 },
+    zoom: 2,
+  });
+
+  const bounds = new google.maps.LatLngBounds();
+
+  //marking the locations of the places
+
+  var x = document.getElementsByClassName('googlelocation');
+  var locationarray= Array.from(x);
+
+  locationarray.forEach(function(y){
+    var coords = y.innerHTML.split(', ');
+    const marker = new google.maps.Marker({
+      position: {lat: Number(coords[0]), lng: Number(coords[1])},
+      map: map
+    });
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div>
+      <a href= 'places/${coords[3]}'><p>${coords[2]}</p></a>
+      </div>`
+    });
+    marker.addListener('click', () => {
+      infoWindow.open(map, marker);
+    });
+  })
+
+
+
+
+
+
+
+});
+
+
+</script>
+  <div class="map"></div>
+
+<div class='solid'>
+
+
+
+  <div class= 'col s12' style='margin-bottom :40px '>
+
+    <div class="row">
+      <div class= 'col s12'>
+
+      <% places.forEach((place) => { %>
+
+<%if (place.user.id === user.id) {%>
+
+          <div class="col s12 m4">
+          <div class="card small">
+          <a href='places/<%= place._id %>' ><div class="card-image">
+          <img src="<%= place.photo %>">
+          </div>
+          <div class= 'center-align'>
+          <h4><%= place.name %></h4>
+          <p>  <%if (place.rating === 5) {%>
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+            <%} else if (place.rating > 3.6) {%>
+              &#9733;&#9733;&#9733;&#9733;&#9734;
+              <%} else if (place.rating > 2.6) {%>
+                &#9733;&#9733;&#9733;&#9734;&#9734;
+                <%} else if (place.rating > 1.6) {%>
+                  &#9733;&#9733;&#9734;&#9734;&#9734;
+                  <%} else if (place.rating > 0.6) {%>
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+                    <%} else {%>
+                      no rating
+                      <%} %> </p>
+                      <div class='hidden'>
+                      <p class='googlelocation'><%= place.location %>, <%=place.name %>, <%= place._id %></p>
+                      </div>
+                      </div>
+                      </a>
+
+                      </div>
+                      </div>
+
+<%}%>
+
+                      <%   }) %>
+
+                    </div>
+                  </div>
+
+
+                </div>

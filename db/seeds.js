@@ -5,11 +5,11 @@ const { databaseURI } = require('../config/environment');
 mongoose.connect(databaseURI);
 
 
-const place = require('../models/place');
+const Place = require('../models/place');
 const User = require('../models/user');
 
 
-place.collection.drop();
+Place.collection.drop();
 User.collection.drop();
 
 
@@ -34,7 +34,7 @@ User
 
   .then(users => {
     console.log(`${users.length} users created`);
-    return place
+    return Place
       .create([{
         photo: 'https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/paris/eiffel-tower-paris-p.jpg',
         name: 'Paris',
