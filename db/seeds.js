@@ -37,7 +37,7 @@ User
     return Place
       .create([{
         photo: 'https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/paris/eiffel-tower-paris-p.jpg',
-        name: 'Paris',
+        name: 'Paris, France',
         location: '48.856614, 2.352222',
         datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
         dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',
@@ -55,7 +55,7 @@ User
         }]
       },{
         photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/9a/e3/1d/freedom-tower.jpg',
-        name: 'New York City',
+        name: 'New York City, USA',
         location: '40.712775, -74.005973',
         datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
         dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',
@@ -73,7 +73,7 @@ User
         }]
       },{
         photo: 'https://cdn.britannica.com/700x450/17/83817-004-C5DB59F8.jpg',
-        name: 'Mount Everest',
+        name: 'Mount Everest, Nepal',
         location: '27.988121, 86.924975',
         datestart: 'Wed Mar 25 2015 00:00:00 GMT+0000',
         dateend: 'Wed Mar 25 2015 00:00:00 GMT+0000',

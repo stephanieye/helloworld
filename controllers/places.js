@@ -11,17 +11,6 @@ function placesIndex(req, res) {
     .catch(err => console.log(err));
 }
 
-function placesAccount(req, res) {
-  Place
-    .find()
-    .populate('user user.username comments comments.commenter')
-    .exec()
-    .then(places => {
-      res.render('places/account', {places});
-    })
-    .catch(err => console.log(err));
-}
-
 
 function placesShow(req, res) {
   Place
@@ -77,7 +66,7 @@ function placesDelete(req, res) {
     .findById(req.params.id)
     .exec()
     .then(place => place.remove())
-    .then(() => res.redirect('/places'))
+    .then(() => res.redirect(`/users/${req.currentUser.id}`))
     .catch(err => console.log(err));
 }
 
@@ -145,7 +134,6 @@ function commentUpdateRoute(req, res) {
 
 module.exports = {
   index: placesIndex,
-  account: placesAccount,
   show: placesShow,
   delete: placesDelete,
   new: placesNew,

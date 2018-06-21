@@ -4,10 +4,10 @@
 
 
     <ul class='left'>
-    <li><a href="/" class='brown-text brand-logo hide-on-med-and-down'><i class="material-icons">flight</i><span class='brand'>Hello World!</span></a></li>
+    <li><a href="/" class='brand-logo'><i class="material-icons invisible">flight</i><span class='brand brown-text hide-on-med-and-down'>Hello World!</span></a></li>
     </ul>
     <ul class='left'>
-      <li><a href="/" class='brown-text hide-on-med-and-up'><i class="material-icons">flight</i></a></li>
+      <li><a href="/" class='brown-text'><i class="material-icons">flight</i></a></li>
     </ul>
 
 
@@ -15,8 +15,6 @@
       <% if (locals.isLoggedIn) { %>
         <li><a href="/users/<%=locals.userr.id%>" class='brown-text'><h6>your map</h6></a></li>
         <li><a href ="/places/new" class='brown-text' ><h6>add a place</h6></a></li>
-        <li><a href ="/users" class='brown-text' ><h6>view all users</h6></a></li>
-        <li><a href ='/places/account' class='brown-text' ><h6><em><%=locals.userr.username%></em></h6></a></li>
         <%  } else { %>
           <li><a href ="/createaccount" class='brown-text'><h6>create an account</h6></a></li>
           <li><a href ="/login" class='brown-text'><h6>log in</h6></a></li>

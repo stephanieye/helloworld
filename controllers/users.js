@@ -9,7 +9,7 @@ function createRoute(req, res){
   User
     .create(req.body)
     .then(() => {
-      req.flash('happy', 'Thanks for registering with placelifer! Now, please log in.');
+      req.flash('happy', 'Thanks for registering with Hello World! Now, please log in.');
       res.redirect('/login');
     })
     .catch((err) => {
@@ -81,7 +81,7 @@ function updateRoute(req, res, next) {
 
       return user.save();
     })
-    .then(() => res.redirect('/places/account'))
+    .then(() => res.redirect(`/users/${req.currentUser.id}`))
     .catch((err) => {
       if(err.name === 'ValidationError') {
         res.badRequest(`/users/${req.params.id}/edit`, err.toString());

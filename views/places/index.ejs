@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   var x = document.getElementsByClassName('googlelocation');
   var locationarray= Array.from(x);
+  var infoWindowArray = [];
 
   locationarray.forEach(function(y){
     var coords = y.innerHTML.split(', ');
@@ -29,11 +30,19 @@ window.addEventListener('DOMContentLoaded', () => {
       map: map
     });
     const infoWindow = new google.maps.InfoWindow({
-      content: `<div>
-      <a href= '/places/${coords[3]}'><p>${coords[2]}</p></a>
+      content: `<div class='center-align'>
+      <a href= '/places/${coords[2]}'>
+      <h5>${coords[3]}</h5>
+      <h6>${coords[coords.length-1]}</h6>
+        </a>
       </div>`
     });
+
+    infoWindowArray.push(infoWindow);
+
     marker.addListener('click', () => {
+      infoWindowArray.forEach(infoWindow =>
+      infoWindow.close(map, marker));
       infoWindow.open(map, marker);
     });
   })
@@ -48,7 +57,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
+<div class='solid' style='margin-bottom: 20px'>
 <h4 class='center-align'>All the places our users have pinned!</h4>
+</div>
   <div class="map"></div>
 
 <div class='solid'>
@@ -65,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
           <div class="col s12 m4">
-          <div class="card small">
+          <div class="card medium">
           <a href='places/<%= place._id %>' ><div class="card-image">
           <img src="<%= place.photo %>">
           </div>
@@ -85,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
                       no rating
                       <%} %> </p>
                       <div class='hidden'>
-                      <p class='googlelocation'><%= place.location %>, <%=place.name %>, <%= place._id %></p>
+                          <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%=place.name %></p>
                       </div>
                       </div>
                       </a>

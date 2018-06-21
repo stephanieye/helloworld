@@ -48,9 +48,6 @@ router.route('/places')
   .get(secureRoute, places.index)
   .post(secureRoute, places.create);
 
-router.route('/places/account')
-  .get(secureRoute, places.account);
-
 router.route('/places/new')
   .get(secureRoute, places.new);
 

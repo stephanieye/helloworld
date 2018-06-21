@@ -1,11 +1,11 @@
 {
-  "name": "placelife",
+  "name": "helloworld",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Stephanie Ye",
   "license": "MIT",
   "scripts": {
-    "start": "node index"
+    "start": "nodemon"
   },
   "dependencies": {
     "bcrypt": "^2.0.0",
@@ -23,5 +23,5 @@
     "multer": "^1.3.0",
     "node-sass": "^4.9.0"
   },
-  "repository": "https://github.com/stephslye/placelife.git"
+  "repository": "https://github.com/stephslye/helloworld.git"
 }

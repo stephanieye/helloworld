@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   $('.newplaceform').submit(function(e) {
-    document.querySelector('#name_field').value = autocomplete.getPlace().name;
+    document.querySelector('#name_field').value = autocomplete.getPlace().formatted_address;
     var locale = autocomplete.getPlace().geometry.location.toString();
     var locale1 = locale.slice(1, locale.length-1);
     document.querySelector('#location_field').value= locale1;
