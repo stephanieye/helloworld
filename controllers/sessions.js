@@ -1,3 +1,5 @@
+//these are all for logging in and out
+
 const User = require('../models/user');
 
 function newRoute(req, res) {

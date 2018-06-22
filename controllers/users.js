@@ -76,12 +76,13 @@ function updateRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-
       user = Object.assign(user, req.body);
-
       return user.save();
     })
-    .then(() => res.redirect(`/users/${req.currentUser.id}`))
+    .then(() => {
+      req.flash('happy', 'You have updated your account.');
+      res.redirect(`/users/${req.currentUser.id}`);
+    })
     .catch((err) => {
       if(err.name === 'ValidationError') {
         res.badRequest(`/users/${req.params.id}/edit`, err.toString());
@@ -94,8 +95,22 @@ function deleteRoute(req, res) {
   User
     .findById(req.params.id)
     .exec()
-    .then(user => user.remove())
-    .then(() => res.redirect('/'))
+    .then((user) => {
+      //delete all places created by user
+      Place
+        .find({user: user })
+        .then((places) => {
+          places.forEach((place) => {
+            return place.remove();
+          });
+        });
+      if(!user) return res.notFound();
+      return user.remove();
+    })
+    .then(() => {
+      req.flash('danger', 'You have deleted your account. Goodbye, world.');
+      res.redirect('/');
+    })
     .catch(err => console.log(err));
 }
 

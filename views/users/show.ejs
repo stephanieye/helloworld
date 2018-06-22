@@ -32,7 +32,7 @@
         <a href= '/places/${coords[2]}'>
         <h5>${coords[4]}</h5>
         <h6>${coords[coords.length-1]}</h6>
-          </a>
+        </a>
         </div>`
       });
 
@@ -40,68 +40,68 @@
 
       marker.addListener('click', () => {
         infoWindowArray.forEach(infoWindow =>
-        infoWindow.close(map, marker));
-        infoWindow.open(map, marker);
-      });
-    })
-  });
+          infoWindow.close(map, marker));
+          infoWindow.open(map, marker);
+        });
+      })
+    });
 
 
-  </script>
+    </script>
 
 
 
-  <%if (user.id === locals.userr.id) {%>
-    <div class='solid' style='margin-bottom: 20px'>
-   <h2 class='center-align'>Hello, <%=locals.userr.username%>!</h2>
-   <h5><a href='../users/<%=locals.userr._id%>/edit'>Edit your account</a></h5>
-   <h5><a href ="/logout" >Logout</a></h5>
-   </div>
-    <%} else {%>
+    <%if (user.id === locals.userr.id) {%>
       <div class='solid' style='margin-bottom: 20px'>
-      <h2 class='center-align'><%=user.username%>&#8217;s map</h2>
+      <h2 class='center-align'>Hello, <%=locals.userr.username%>!</h2>
+      <h5><a href='../users/<%=locals.userr._id%>/edit'>Edit your account</a></h5>
+      <h5><a href ="/logout" >Logout</a></h5>
       </div>
-      <% } %>
-      <div class="map"></div>
-      <div class= 'col s12' style='margin-bottom :40px '>
-      <div class="row">
+      <%} else {%>
+        <div class='solid' style='margin-bottom: 20px'>
+        <h2 class='center-align'><%=user.username%>&#8217;s map</h2>
+        </div>
+        <% } %>
+        <div class="map"></div>
+        <div class= 'col s12' style='margin-bottom :40px '>
+        <div class="row">
 
-      <% places.forEach((place) => { %>
+        <% places.forEach((place) => { %>
 
-        <%if (place.user.id === user.id) {%>
+          <%if (place.user.id === user.id) {%>
 
-          <div class="col s12 m4">
-          <div class="card medium">
-          <a href='/places/<%= place._id %>' ><div class="card-image">
-          <img src="<%= place.photo %>">
-          </div>
-          <div class= 'center-align'>
-          <h4><%= place.name %></h4>
-          <p>  <%if (place.rating === 5) {%>
-            &#9733;&#9733;&#9733;&#9733;&#9733;
-            <%} else if (place.rating > 3.6) {%>
-              &#9733;&#9733;&#9733;&#9733;&#9734;
-              <%} else if (place.rating > 2.6) {%>
-                &#9733;&#9733;&#9733;&#9734;&#9734;
-                <%} else if (place.rating > 1.6) {%>
-                  &#9733;&#9733;&#9734;&#9734;&#9734;
-                  <%} else if (place.rating > 0.6) {%>
-                    &#9733;&#9734;&#9734;&#9734;&#9734;
-                    <%} else {%>
-                      no rating
-                      <%} %> </p>
-                      <div class='hidden'>
+            <div class="col s12 m4">
+            <div class="card medium">
+            <a href='/places/<%= place._id %>' ><div class="card-image">
+            <img src="<%= place.photo %>">
+            </div>
+            <div class= 'center-align'>
+            <h4><%= place.name %></h4>
+            <p>  <%if (place.rating === 5) {%>
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+              <%} else if (place.rating > 3.6) {%>
+                &#9733;&#9733;&#9733;&#9733;&#9734;
+                <%} else if (place.rating > 2.6) {%>
+                  &#9733;&#9733;&#9733;&#9734;&#9734;
+                  <%} else if (place.rating > 1.6) {%>
+                    &#9733;&#9733;&#9734;&#9734;&#9734;
+                    <%} else if (place.rating > 0.6) {%>
+                      &#9733;&#9734;&#9734;&#9734;&#9734;
+                      <%} else {%>
+                        no rating
+                        <%} %> </p>
+                        <div class='hidden'>
                         <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%= user._id%>, <%=place.name %></p>
-                      </div>
-                      </div>
-                      </a>
+                        </div>
+                        </div>
+                        </a>
 
-                      </div>
-                      </div>
+                        </div>
+                        </div>
 
-                      <%}%>
+                        <%}%>
 
-                      <%   }) %>
+                        <%   }) %>
 
-                      </div>
-                      <%}%>
+                        </div>
+                        <%}%>

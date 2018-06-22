@@ -36,9 +36,9 @@
                   <h5>Comments</h5>
                 <% place.comments.forEach((comment) => { %>
 
+                  <%if (comment.commenter) {%>
+
                   <div class='col s12 row'>
-
-
                   <div class= 'col s12'>
                   <h6><%= comment.content %></h6>
                   </div>
@@ -53,19 +53,15 @@
                   <p class='small'><%=comment.createdAtRelative%></p>
                   </div>
 
-
                   <div class= 'col s12 m2'>
                   <br />
                   <%if(locals.isLoggedIn && (comment.commenter.id === locals.userr.id)) {%>
                     <a href='/places/<%= place._id%>/comments/<%= comment._id %>/commentedit'><button class ="waves-effect waves-light green btn">Edit</button></a>
                     <% } %>
                     </div>
-
                     </div>
-
                     </div>
-
-
+                    <%}%>
                     <% }) %>
                   </div>
                     <br />
