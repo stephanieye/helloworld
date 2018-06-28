@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  url: {type: String, default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Birnbaum_am_Lerchenberg_retouched.jpg/310px-Birnbaum_am_Lerchenberg_retouched.jpg'}
+  url: {type: String, default: 'https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg'}
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) {

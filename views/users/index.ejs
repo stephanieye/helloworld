@@ -19,7 +19,7 @@
     <div class="card small">
     <a href='/users/<%= user._id %>' ><div class="card-image">
 
-    <%if (user.url) {%>
+    <%if (user.url.match(/\.(jpeg|jpg|gif|png)$/) !== null) {%>
     <img src="<%= user.url %>">
     <%} else {%>
     <img src="https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg">

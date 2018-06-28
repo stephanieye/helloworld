@@ -36,6 +36,8 @@ In the end, I used a rather hacky method: getting the data on the frontend and s
 
 * As for non-hacky matters, all place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
 
+* Google Maps API matters: though I am able to automatically obtain an image of an entered place through the API, after a few days the URL becomes invalid and returns an ugly placeholder image. I am unsure if there is a way to circumvent this, or if I simply have to accept it as one of the API's quirks.
+
 --------------
 ##Technologies
 --------------
