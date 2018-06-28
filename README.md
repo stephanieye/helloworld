@@ -34,9 +34,11 @@ In the end, I used a rather hacky method: getting the data on the frontend and s
 
 * In general, my hacky way of passing data from the frontend to the backend is probably not the most elegant way.
 
-* Google Maps API matters: though I am able to automatically obtain an image of an entered place through the API, after a few days the URL becomes invalid and returns an ugly placeholder image. I am unsure if there is a way to circumvent this, or if I simply have to accept it as one of the API's quirks. At the moment, I have commented out the mechanism to fetch an image via the API, instead providing a default image of the globe. The user can replace the default image with their own image url if they edit the entry.
+* Google Maps API matters: Though I am able to automatically obtain an image of an entered place through the API, after a few days the URL becomes invalid and returns an ugly placeholder image. I am unsure if there is a way to circumvent this, or if I simply have to accept it as one of the API's quirks. At the moment, I have commented out the mechanism to fetch an image via the API, instead providing a default image of the globe. The user can replace the default image with their own image URL if they edit the entry.
 
-* Data presentation matters: all place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
+* Entry creation: Currently, a user can enter the exact same place more than once... place entries are not required unique in the Mongoose model so that different users can enter the same place. But it would be good to implement a mechanism whereby an individual user cannot add a place more than once.
+
+* Data presentation matters: All place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
 
 --------------
 ##Technologies
