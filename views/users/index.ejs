@@ -18,7 +18,15 @@
     <div class="col s12 m6 xl4">
     <div class="card small">
     <a href='/users/<%= user._id %>' ><div class="card-image">
+
+    <%if (user.url) {%>
     <img src="<%= user.url %>">
+    <%} else {%>
+    <img src="https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg">
+    <%}%>
+
+
+
     </div>
     <div class= 'center-align'>
     <h4><%= user.username %></h4>

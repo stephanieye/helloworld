@@ -34,7 +34,7 @@ In the end, I used a rather hacky method: getting the data on the frontend and s
 
 * In general, my hacky way of passing data from the frontend to the backend is probably not the most elegant way.
 
-* As for non-hacky matters, all place entries are currently listed in order of when they were created: it would be great to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
+* As for non-hacky matters, all place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
 
 --------------
 ##Technologies
