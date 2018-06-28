@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
       <a href= '/places/${coords[2]}'>
       <h5>${coords[3]}</h5>
       <h6>${coords[coords.length-1]}</h6>
-        </a>
+      </a>
       </div>`
     });
 
@@ -42,10 +42,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     marker.addListener('click', () => {
       infoWindowArray.forEach(infoWindow =>
-      infoWindow.close(map, marker));
-      infoWindow.open(map, marker);
-    });
-  })
+        infoWindow.close(map, marker));
+        infoWindow.open(map, marker);
+      });
+    })
 
 
 
@@ -53,14 +53,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-});
+  });
 
 
 </script>
 <div class='solid' style='margin-bottom: 20px'>
-<h4 class='center-align'>All the places our users have pinned!</h4>
+  <h4 class='center-align'>All the places our users have pinned!</h4>
 </div>
-  <div class="map"></div>
+<div class="map"></div>
 
 <div class='solid'>
 
@@ -71,10 +71,11 @@ window.addEventListener('DOMContentLoaded', () => {
     <div class="row">
       <div class= 'col s12'>
 
-      <% places.forEach((place) => { %>
+        <%places.sort(function(a, b) {
+          return b.name < a.name ?  1 : b.name > a.name ? -1 : 0;
+        });%>
 
-
-
+        <% places.forEach((place) => { %>
           <div class="col s12 m4">
           <div class="card medium">
           <a href='places/<%= place._id %>' ><div class="card-image">
@@ -96,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
                       no rating
                       <%} %> </p>
                       <div class='hidden'>
-                          <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%=place.name %></p>
+                      <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%=place.name %></p>
                       </div>
                       </div>
                       </a>

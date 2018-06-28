@@ -66,6 +66,10 @@
         <div class= 'col s12' style='margin-bottom :40px '>
         <div class="row">
 
+        <%places.sort(function(a, b) {
+          return b.name < a.name ?  1 : b.name > a.name ? -1 : 0;
+        });%>
+
         <% places.forEach((place) => { %>
 
           <%if (place.user.id === user.id) {%>
