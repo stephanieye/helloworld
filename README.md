@@ -23,7 +23,7 @@ I wanted to make things easy for the user: they should simply have to type in a 
 
 ![Add Place Page](http://stephslye.github.io/images/helloworldadd.png)
 
-In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend. In this way, I get the place name, coordinates, and a photo of the place. The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
+In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend. In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
 
 
 ![Show Page](http://stephslye.github.io/images/helloworldshowpage.png)
@@ -34,9 +34,9 @@ In the end, I used a rather hacky method: getting the data on the frontend and s
 
 * In general, my hacky way of passing data from the frontend to the backend is probably not the most elegant way.
 
-* As for non-hacky matters, all place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
+* Google Maps API matters: though I am able to automatically obtain an image of an entered place through the API, after a few days the URL becomes invalid and returns an ugly placeholder image. I am unsure if there is a way to circumvent this, or if I simply have to accept it as one of the API's quirks. At the moment, I have commented out the mechanism to fetch an image via the API, instead providing a default image of the globe. The user can replace the default image with their own image url if they edit the entry.
 
-* Google Maps API matters: though I am able to automatically obtain an image of an entered place through the API, after a few days the URL becomes invalid and returns an ugly placeholder image. I am unsure if there is a way to circumvent this, or if I simply have to accept it as one of the API's quirks.
+* Data presentation matters: all place entries are currently sorted alphabetically according to place name. A future task would be to create the functionality to sort the entries by country and continent, as well as to introduce stats as to the number of places/countries/continents visited.
 
 --------------
 ##Technologies

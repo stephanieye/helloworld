@@ -24,7 +24,7 @@ commentSchema.set('toJSON', {
 });
 
 const placeSchema = new mongoose.Schema({
-  photo: String,
+  photo: {type: String, default: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1200px-The_Earth_seen_from_Apollo_17.jpg'},
   name: String,
   location: String,
   datestart: Date,
