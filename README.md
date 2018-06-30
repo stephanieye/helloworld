@@ -1,4 +1,4 @@
-![Title Page](http://stephslye.github.io/images/helloworld.png)
+![Title Page](http://stephslye.github.io/images/readme/helloworld.png)
 
 ------------------
 #Hello World!
@@ -13,7 +13,7 @@ An app that allows users to pin on a map where they've travelled (in the style o
 
 This was my first full-stack app created whilst on the Web Development Immersive course at General Assembly. The brief was to create a review website, i.e. a site on which users could add entries and comment on one another's entries. My original idea was to create a review website for London's parks. However, once I discovered the power of the Google Maps API, I realised I was limiting my horizons. Why not let my users review the whole world?
 
-![Map Page](http://stephslye.github.io/images/helloworldmap.png)
+![Map Page](http://stephslye.github.io/images/readme/helloworldmap.png)
 
 ----------
 ##Approach
@@ -21,12 +21,12 @@ This was my first full-stack app created whilst on the Web Development Immersive
 
 I wanted to make things easy for the user: they should simply have to type in a place name, hit 'submit', and the place should appear pinned on their map. Getting data about a place based on an entered place name was easy enough with Google Map's Autocomplete functionality; the API request returns a lot of data, including photographs of the place in question. However, the challenge was to get my backend working with the data coming from the Google Maps API on the frontend, using EJS.
 
-![Add Place Page](http://stephslye.github.io/images/helloworldadd.png)
+![Add Place Page](http://stephslye.github.io/images/readme/helloworldadd.png)
 
 In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend. In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
 
 
-![Show Page](http://stephslye.github.io/images/helloworldshowpage.png)
+![Show Page](http://stephslye.github.io/images/readme/helloworldshowpage.png)
 
 ----------------------
 ##Room for improvement
