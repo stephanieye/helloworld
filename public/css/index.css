@@ -11,6 +11,10 @@ body {
 h1 {
   font-family: Cabin Sketch, cursive; }
 
+.base {
+  margin: 150px auto 50px auto;
+  width: 80%; }
+
 .brand {
   font-family: Cabin Sketch, cursive; }
 
@@ -32,7 +36,7 @@ h1 {
   border-radius: 175px; }
 
 .map {
-  height: 60vh;
+  height: 90vh;
   margin-bottom: 20px; }
 
 .placephoto {
@@ -57,6 +61,12 @@ p {
 .small {
   font-size: 12px; }
 
+@media only screen and (max-width: 1200px) {
+  .base {
+    width: 95%; }
+
+  .map {
+    height: 60vh; } }
 @media only screen and (max-width: 600px) {
   .map {
     height: 30vh; } }
