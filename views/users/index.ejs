@@ -1,5 +1,5 @@
 <% if(locals.isLoggedIn) {%>
-  <div class="container solid">
+  <div class="solid">
   <h2 class='center-align'>All users</h2>
 
   <div class='solid'>
@@ -16,36 +16,29 @@
 
 
     <div class="col s12 m6 xl4">
-    <div class="card small">
+    <div class="card medium">
     <a href='/users/<%= user._id %>' ><div class="card-image">
 
     <%if (user.url.match(/\.(jpeg|jpg|gif|png)$/) !== null) {%>
-    <img src="<%= user.url %>">
-    <%} else {%>
-    <img src="https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg">
-    <%}%>
+      <img src="<%= user.url %>">
+      <%} else {%>
+        <img src="https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg">
+        <%}%>
 
+        </div>
+        <div class= 'center-align'>
+        <h4><%= user.username %></h4>
+        </div>
+        </a>
 
+        </div>
+        </div>
 
-    </div>
-    <div class= 'center-align'>
-    <h4><%= user.username %></h4>
-    </div>
-    </a>
+        <%   }) %>
 
-    </div>
-    </div>
+        </div>
+        </div>
+        </div>
 
-    <%   }) %>
-
-    </div>
-    </div>
-
-
-    </div>
-
-
-
-
-    </div>
-    <%}%>
+        </div>
+        <%}%>
