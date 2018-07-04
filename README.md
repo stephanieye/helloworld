@@ -23,8 +23,11 @@ I wanted to make things easy for the user: they should simply have to type in a 
 
 ![Add Place Page](http://stephslye.github.io/images/readme/helloworldadd.png)
 
-In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend. In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
+In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend.
 
+![Code](http://stephslye.github.io/images/readme/helloworldhacky.png)
+
+In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
 
 ![Show Page](http://stephslye.github.io/images/readme/helloworldshowpage.png)
 
