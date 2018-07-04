@@ -46,71 +46,50 @@ window.addEventListener('DOMContentLoaded', () => {
         infoWindow.open(map, marker);
       });
     })
-
-
-
-
-
-
-
   });
 
 
 </script>
+
+
 <div class='solid' style='margin-bottom: 20px'>
   <h4 class='center-align'>All the places our users have pinned!</h4>
 </div>
 <div class="map"></div>
+<div class='col s12'>
+<div class="row">
 
-<div class='solid'>
+    <%places.sort(function(a, b) {
+      return b.name < a.name ?  1 : b.name > a.name ? -1 : 0;
+    });%>
 
-
-
-  <div class= 'col s12' style='margin-bottom :40px '>
-
-    <div class="row">
-      <div class= 'col s12'>
-
-        <%places.sort(function(a, b) {
-          return b.name < a.name ?  1 : b.name > a.name ? -1 : 0;
-        });%>
-
-        <% places.forEach((place) => { %>
-          <div class="col s12 m4">
-          <div class="card medium">
-          <a href='places/<%= place._id %>' ><div class="card-image">
-          <img src="<%= place.photo %>">
-          </div>
-          <div class= 'center-align'>
-          <h4><%= place.name %></h4>
-          <p>  <%if (place.rating === 5) {%>
-            &#9733;&#9733;&#9733;&#9733;&#9733;
-            <%} else if (place.rating > 3.6) {%>
-              &#9733;&#9733;&#9733;&#9733;&#9734;
-              <%} else if (place.rating > 2.6) {%>
-                &#9733;&#9733;&#9733;&#9734;&#9734;
-                <%} else if (place.rating > 1.6) {%>
-                  &#9733;&#9733;&#9734;&#9734;&#9734;
-                  <%} else if (place.rating > 0.6) {%>
-                    &#9733;&#9734;&#9734;&#9734;&#9734;
-                    <%} else {%>
-                      no rating
-                      <%} %> </p>
-                      <div class='hidden'>
-                      <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%=place.name %></p>
-                      </div>
-                      </div>
-                      </a>
-
-                      </div>
-                      </div>
-
-
-
-                      <%   }) %>
-
-                    </div>
-                  </div>
-
-
-                </div>
+    <% places.forEach((place) => { %>
+      <div class="col s12 m4">
+      <div class="card medium">
+      <a href='places/<%= place._id %>' >
+      <div class="card-image" style='background-image: url(<%=place.photo%>)'></div>
+      <div class= 'center-align'>
+      <h4><%= place.name %></h4>
+      <p>  <%if (place.rating === 5) {%>
+        &#9733;&#9733;&#9733;&#9733;&#9733;
+        <%} else if (place.rating > 3.6) {%>
+          &#9733;&#9733;&#9733;&#9733;&#9734;
+          <%} else if (place.rating > 2.6) {%>
+            &#9733;&#9733;&#9733;&#9734;&#9734;
+            <%} else if (place.rating > 1.6) {%>
+              &#9733;&#9733;&#9734;&#9734;&#9734;
+              <%} else if (place.rating > 0.6) {%>
+                &#9733;&#9734;&#9734;&#9734;&#9734;
+                <%} else {%>
+                  no rating
+                  <%} %> </p>
+              <div class='hidden'>
+              <p class='googlelocation'><%= place.location %>, <%= place._id %>, <%=place.name %></p>
+              </div>
+      </div>
+      </a>
+      </div>
+      </div>
+      <%   }) %>
+</div>
+</div>

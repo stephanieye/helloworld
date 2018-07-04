@@ -76,9 +76,8 @@
 
             <div class="col s12 m4">
             <div class="card medium">
-            <a href='/places/<%= place._id %>' ><div class="card-image">
-            <img src="<%= place.photo %>">
-            </div>
+            <a href='/places/<%= place._id %>' >
+            <div class="card-image" style='background-image: url(<%=place.photo%>)'></div>
             <div class= 'center-align'>
             <h4><%= place.name %></h4>
             <p>  <%if (place.rating === 5) {%>

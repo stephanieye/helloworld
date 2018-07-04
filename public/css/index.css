@@ -32,6 +32,12 @@ h1 {
   border-radius: 10px;
   padding: 20px; }
 
+.card-image {
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 .round {
   border-radius: 175px; }
 

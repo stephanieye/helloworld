@@ -2,43 +2,28 @@
   <div class="solid">
   <h2 class='center-align'>All users</h2>
 
-  <div class='solid'>
-
-
-
-  <div class= 'col s12' style='margin-bottom :40px '>
-
-  <div class="row">
-  <div class= 'col s12'>
+  <div class= 'row'>
 
   <% users.forEach((user) => { %>
-
-
-
-    <div class="col s12 m6 xl4">
+    <div class='col s12 m6 xl4'>
     <div class="card medium">
-    <a href='/users/<%= user._id %>' ><div class="card-image">
+    <a href='/users/<%= user._id %>' >
 
     <%if (user.url.match(/\.(jpeg|jpg|gif|png)$/) !== null) {%>
-      <img src="<%= user.url %>">
+      <div class= "card-image" style='background-image: url(<%= user.url %>)'></div>
       <%} else {%>
-        <img src="https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg">
-        <%}%>
+      <div class='card-image' style='background-image: url(https://www.tatacliq.com/que/wp-content/uploads/2017/04/what-kind-of-traveller-image-featured.jpg)'></div>
+      <%}%>
 
-        </div>
-        <div class= 'center-align'>
-        <h4><%= user.username %></h4>
-        </div>
-        </a>
+      <div class= 'center-align'>
+      <h4><%= user.username %></h4>
+      </div>
+      </a>
 
-        </div>
-        </div>
+      </div>
+      </div>
+      <%   }) %>
 
-        <%   }) %>
-
-        </div>
-        </div>
-        </div>
-
-        </div>
-        <%}%>
+      </div>
+      </div>
+      <%}%>
