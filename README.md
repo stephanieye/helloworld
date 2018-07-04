@@ -25,6 +25,10 @@ I wanted to make things easy for the user: they should simply have to type in a 
 
 In the end, I used a rather hacky method: getting the data on the frontend and setting it as the values of hidden fields on a form, which then submits the data to the backend.
 
+* Setting API data as form values upon submit:
+![Code](http://stephslye.github.io/images/readme/helloworldhack.png)
+
+* The hidden fields of the form:
 ![Code](http://stephslye.github.io/images/readme/helloworldhacky.png)
 
 In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
