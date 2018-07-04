@@ -27,11 +27,11 @@ In the end, I used a rather hacky method: getting the data on the frontend and s
 
 * Setting API data as form values upon submit:
 
-![API Code](public/images/helloworldhack.png)
+![API Code](public/images/helloworldapicode.png)
 
 * The hidden fields of the form:
 
-![Form Code](public/images/helloworldhacky.png)
+![Form Code](public/images/helloworldformcode.png)
 
 In this way, I get the place name, coordinates and, originally, a photo of the place (see 'Room for improvement' section for developments on this). The user can also add their own rating (between 1 and 5 stars), dates visited, as well as a note.
 
