@@ -1,10 +1,8 @@
 
 <div class="solid">
   <div class='center-align'>
-    <div class='placephoto' style= 'background-image: url(<%= place.photo %>)'></div>
-
+    <img class='placephoto' src='<%=place.photo%>'>
     <h3 class= 'col s12'><%= place.name %></h3>
-
 
     <%if (locals.userr.id === place.user.id) { %>
       <div class='center-align' style='margin-bottom: 20px'>
