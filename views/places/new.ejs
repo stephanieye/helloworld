@@ -22,7 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
     var locale = autocomplete.getPlace().geometry.location.toString();
     var locale1 = locale.slice(1, locale.length-1);
     document.querySelector('#location_field').value= locale1;
-    // document.querySelector('#photo_field').value= autocomplete.getPlace().photos[0].getUrl({'maxWidth': 1000, 'maxHeight': 1000});
+    // start autopicture
+    document.querySelector('#photo_field').value= autocomplete.getPlace().photos[0].getUrl({'maxWidth': 1000, 'maxHeight': 1000});
+    // end autopicture
   });
 
 });
@@ -86,10 +88,11 @@ window.addEventListener('DOMContentLoaded', () => {
   <div class="input-field col l12">
     <input type='text' name='location' id='location_field'/>
   </div>
-
-  <%# <div class="input-field col l12">
+<%# start autopicture %>
+  <div class="input-field col l12">
     <input type='text' name='photo' id='photo_field'/>
-  </div> %>
+  </div>
+<%# end autopicture %>
 </div>
 <button class="waves-effect waves-light green btn">Submit</button>
 </form>
